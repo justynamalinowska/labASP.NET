@@ -1,0 +1,59 @@
+﻿@model Dictionary<int, Product>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<h1>Products</h1>
+<a class="btn btn-primary" asp-controller="Product" asp-action="Create">Add product</a>
+
+<table class="table">
+    <tr>
+        <th>
+            Product name
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Producent
+        </th>
+        <th>
+            Date of production
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Value.ProductName
+            </td>
+            <td>
+                @item.Value.Price
+            </td>
+            <td>
+                @item.Value.Producent
+            </td>
+            <td>
+                @item.Value.DateOfProduction
+            </td>
+
+            <td>
+                @item.Value.Description
+            </td>
+            <td>
+                <a class="btn btn-outline-secondary" asp-controller="Product" asp-action="Update" asp-route-id="@item.Value.Id">Update</a>
+                <a class="btn btn-outline-info" asp-controller="Product" asp-action="Details" asp-route-id="@item.Value.Id">Details</a>
+                <a class="btn btn-outline-info" asp-controller="Product" asp-action="Delete" asp-route-id="@item.Value.Id">Delete</a>
+            </td>
+
+        </tr>
+    }
+
+
+</table>
