@@ -13,5 +13,7 @@ namespace Laboratorium3.Models
         public string Email { get; set; }
         public string? Phone { get; set; }
         public DateTime? Birth { get; set; }
+        [Display(Name = "Priorytet")]
+        public Priority Priority { get; set; }
     }
 }
