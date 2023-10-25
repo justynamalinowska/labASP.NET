@@ -40,15 +40,7 @@ namespace Laboratorium3.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            Contact? contact = _contactService.FindById(id);
-            if (contact is not null)
-            {
-                return View(contact);
-            }
-            else
-            {
-                return NotFound();
-            }
+            return View(_contactService.FindById(id));
         }
 
         [HttpPost]

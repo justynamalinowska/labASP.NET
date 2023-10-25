@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using System.Linq;
 
 namespace Laboratorium3.Models
 {
