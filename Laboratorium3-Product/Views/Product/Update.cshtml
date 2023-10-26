@@ -35,7 +35,11 @@
         <input class="orm-control" asp-for="Description" />
         <span class="text-danger" asp-validation-for="Description"></span>
     </div>
-
+    <div class="mb-3">
+        <label asp-for="Quality"></label>
+        <select class="form-control" asp-for="Quality" asp-items="@Html.GetEnumSelectList<Quality>()"></select>
+        <span asp-validation-for="Quality" class="text-danger"></span>
+    </div>
 
     <button class="btn btn-primary" type="submit">Save</button>
     <button class="btn btn-secondary" type="reset">Reset</button>

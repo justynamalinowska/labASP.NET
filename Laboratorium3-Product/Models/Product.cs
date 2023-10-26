@@ -16,8 +16,10 @@ namespace Laboratorium3_Product.Models
         [DataType(DataType.Date)]
         public DateTime? DateOfProduction { get; set; }
         [MinLength(length: 10, ErrorMessage = "Your description is too short! Minimum length is 10 chars.")]
-        [Required(ErrorMessage = "You must write down description!")]
+        [Required(ErrorMessage = "You must write down description for the product!")]
         public string Description { get; set; }
+        [Display(Name = "Quality")]
+        public Quality Quality { get; set; }
     }
 }
 

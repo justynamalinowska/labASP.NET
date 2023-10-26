@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Laboratorium3_Product.Models;
+using Laboratorium3.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,12 +12,16 @@ namespace Laboratorium3_Product.Controllers
 {
     public class ProductController : Controller
     {
-        static readonly Dictionary<int, Product> _products = new Dictionary<int, Product>();
+        private readonly IProductService _productService;
 
-        static int Id = 1;
+        public ProductController(IProductService productService)
+        {
+            _productService = productService;
+        }
+
         public IActionResult Index()
         {
-            return View(_products);
+            return View(_productService.FindAll());
         }
 
         [HttpGet]
@@ -30,8 +35,7 @@ namespace Laboratorium3_Product.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.Id++;
-                _products.Add(model.Id, model);
+                _productService.Add(model);
                 return RedirectToAction("Index");
             }
             else
@@ -43,7 +47,7 @@ namespace Laboratorium3_Product.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            return View(_products[id]);
+            return View(_productService.FindById(id));
         }
 
         [HttpPost]
@@ -51,10 +55,9 @@ namespace Laboratorium3_Product.Controllers
         {
             if (ModelState.IsValid)
             {
-                _products[model.Id] = model;
+                _productService.Update(model);
                 return RedirectToAction("Index");
             }
-            //return View();
             else
             {
                 return NotFound();
@@ -64,20 +67,20 @@ namespace Laboratorium3_Product.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            return View(_products[id]);
+            return View(_productService.FindById(id));
         }
 
         [HttpPost]
         public IActionResult Delete(Product model)
         {
-            _products.Remove(model.Id);
+            _productService.Delete(model.Id);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult Details(int id)
         {
-            return View(_products[id]);
+            return View(_productService.FindById(id));
         }
     }
 }

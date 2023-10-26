@@ -1,7 +1,12 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Laboratorium3.Models;
+using Laboratorium3_Product.Models;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IProductService, MemoryProductService>();
+
 
 var app = builder.Build();
 

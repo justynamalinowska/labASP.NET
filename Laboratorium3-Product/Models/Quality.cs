@@ -1,15 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Xml.Linq;
+using Laboratorium3.Models;
 
-namespace Laboratorium3.Models
+namespace Laboratorium3_Product.Models
 {
-    public enum Priority
+    public enum Quality
     {
         [Display(Name = "Low")] Low = 1,
         [Display(Name = "Normal")] Normal = 2,
         [Display(Name = "High")] High = 3,
-        [Display(Name = "Urgent")] Urgent = 4
-    }
+	}
 }
-
