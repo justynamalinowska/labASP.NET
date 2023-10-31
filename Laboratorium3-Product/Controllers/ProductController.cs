@@ -60,7 +60,7 @@ namespace Laboratorium3_Product.Controllers
             }
             else
             {
-                return NotFound();
+                return View();
             }
         }
 
