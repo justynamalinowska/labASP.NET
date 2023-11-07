@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace Data.Entities
+{
+    internal class ProductEntity
+    {
+        public int Id { get; set; }
+        [MaxLength(50)]
+        public string ProductName { get; set; }
+        public decimal Price { get; set; }
+        public string Producent { get; set; }
+        public DateTime? DateOfProduction { get; set; }
+        public string Description { get; set; }
+        public int Quality { get; set; }
+    }
+}
