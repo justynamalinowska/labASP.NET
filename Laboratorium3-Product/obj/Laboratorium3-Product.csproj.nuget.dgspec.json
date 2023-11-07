@@ -1,26 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/Users/justynamalinowska/Downloads/Laboratorium-ASP.NET-master/Laboratorium3-Product/Laboratorium3-Product.csproj": {}
+    "D:\\Users\\justyna.malinowska\\Source\\Repos\\labASP.NET\\Laboratorium3-Product\\Laboratorium3-Product.csproj": {}
   },
   "projects": {
-    "/Users/justynamalinowska/Downloads/Laboratorium-ASP.NET-master/Laboratorium3-Product/Laboratorium3-Product.csproj": {
+    "D:\\Users\\justyna.malinowska\\Source\\Repos\\labASP.NET\\Laboratorium3-Product\\Laboratorium3-Product.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/justynamalinowska/Downloads/Laboratorium-ASP.NET-master/Laboratorium3-Product/Laboratorium3-Product.csproj",
+        "projectUniqueName": "D:\\Users\\justyna.malinowska\\Source\\Repos\\labASP.NET\\Laboratorium3-Product\\Laboratorium3-Product.csproj",
         "projectName": "Laboratorium3-Product",
-        "projectPath": "/Users/justynamalinowska/Downloads/Laboratorium-ASP.NET-master/Laboratorium3-Product/Laboratorium3-Product.csproj",
-        "packagesPath": "/Users/justynamalinowska/.nuget/packages/",
-        "outputPath": "/Users/justynamalinowska/Downloads/Laboratorium-ASP.NET-master/Laboratorium3-Product/obj/",
+        "projectPath": "D:\\Users\\justyna.malinowska\\Source\\Repos\\labASP.NET\\Laboratorium3-Product\\Laboratorium3-Product.csproj",
+        "packagesPath": "D:\\Users\\justyna.malinowska\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\justyna.malinowska\\Source\\Repos\\labASP.NET\\Laboratorium3-Product\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/justynamalinowska/.nuget/NuGet/NuGet.Config"
+          "D:\\Users\\justyna.malinowska\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -57,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }
