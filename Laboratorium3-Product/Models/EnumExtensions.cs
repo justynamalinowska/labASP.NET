@@ -9,12 +9,12 @@ namespace Laboratorium3_Product.Models
     {
         public static string GetDisplayName(this Enum enumValue)
         {
-            return enumValue.GetType()
-                            .GetMember(enumValue.ToString())
-                            .First()
-                            .GetCustomAttribute<DisplayAttribute>()
-                            .GetName();
+            var displayAttribute = enumValue.GetType()
+                                           .GetMember(enumValue.ToString())
+                                           .FirstOrDefault()
+                                           ?.GetCustomAttribute<DisplayAttribute>();
+
+            return displayAttribute?.GetName() ?? string.Empty;
         }
     }
 }
-

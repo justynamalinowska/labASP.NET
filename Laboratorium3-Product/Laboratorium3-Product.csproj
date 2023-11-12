@@ -15,4 +15,7 @@
   <ItemGroup>
     <Folder Include="Views\Product\" />
   </ItemGroup>
+   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj" />
+  </ItemGroup>
 </Project>

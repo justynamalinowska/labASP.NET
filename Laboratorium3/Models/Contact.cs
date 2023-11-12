@@ -11,9 +11,11 @@ namespace Laboratorium3.Models
         [StringLength(maximumLength: 50, ErrorMessage = "Your name is too long! Maximum length is 50 chars")]
         public string Name { get; set; }
         public string Email { get; set; }
+        [Display(Name = "Phone No")]
         public string? Phone { get; set; }
+        [Display(Name = "Date of Birth")]
         public DateTime? Birth { get; set; }
-        [Display(Name = "Priorytet")]
+        [Display(Name = "Priority")]
         public Priority Priority { get; set; }
         [HiddenInput]
         public DateTime Created { get; set; } 

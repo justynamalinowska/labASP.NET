@@ -1,12 +1,14 @@
-﻿using Laboratorium3.Models;
+﻿using System;
+using Data;
+using Laboratorium3.Models;
 using Laboratorium3_Product.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<IProductService, MemoryProductService>();
-
+builder.Services.AddTransient<IProductService, EFProductService>();
+builder.Services.AddDbContext<AppDbContext>();
 
 var app = builder.Build();
 
