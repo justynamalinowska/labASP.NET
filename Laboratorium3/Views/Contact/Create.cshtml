@@ -10,23 +10,23 @@
 <form asp-controller="Contact" asp-action="Create" method="post">
     <div class="mb-3">
         <label asp-for="Name">Name</label>
-        <input class="orm-control" asp-for="Name" />
+        <input class="form-control" asp-for="Name" />
         <span class="text-danger" asp-validation-for="Name"></span>
     </div>
     <div class="mb-3">
         <label asp-for="Email">Email</label>
-        <input class="orm-control" asp-for="Email" />
+        <input class="form-control" asp-for="Email" />
         <span class="text-danger" asp-validation-for="Email"></span>
     </div>
     <div class="mb-3">
         <label asp-for="Phone">Phone</label>
-        <input class="orm-control" asp-for="Phone" />
+        <input class="form-control" asp-for="Phone" />
         <span class="text-danger" asp-validation-for="Phone"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Birth">Birth</label>
-        <input class="orm-control" asp-for="Birth" />
-        <span class="text-danger" asp-validation-for="Birth"></span>
+        <label asp-for="OrganizationId"></label>
+        <select class="form-control" asp-for="OrganizationId" asp-items="@Model.OrganizationList"></select>
+        <a asp-action="Create" asp-controller="Organization">Add new organization</a>
     </div>
     <div>
         <label asp-for="Priority"></label>

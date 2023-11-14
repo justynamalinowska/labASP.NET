@@ -2,7 +2,7 @@
 
 namespace Laboratorium3.Models
 {
-    public class ContactMapper
+    public class ContactMapper // dodac organization
     {
         public static ContactEntity ToEntity(Contact model)
         {
@@ -14,6 +14,7 @@ namespace Laboratorium3.Models
                 Phone = model.Phone,
                 BirthDate = model.Birth,
                 Priority = (int)model.Priority,
+                OrganizationId = model.OrganizationId
 
             };
         }
@@ -27,6 +28,7 @@ namespace Laboratorium3.Models
                 Phone = model.Phone,
                 Birth = model.BirthDate,
                 Priority = (Priority)model.Priority,
+                OrganizationId = (int)model.OrganizationId
             };
         }
             
