@@ -21,24 +21,17 @@ namespace Laboratorium3.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            List<SelectListItem> list = CreateSelectItem();
-
-            return View(new Contact() { OrganizationList = list });
+            return View(new Contact() { OrganizationList = CreateSelectItem() });
         }
 
         private List<SelectListItem> CreateSelectItem()
         {
-            return _contactService.FindAllOrganizations()
-                        .Select(e => new SelectListItem()
-                        {
-                            Text = e.Name,
-                            Value = e.Id.ToString()
-                        }).Append(new SelectListItem()
-                        {
-                            Text = "-",
-                            Value = ""
-
-                        }).ToList();
+            var items = _contactService.FindAllOrganizations()
+                          .Select(e => new SelectListItem()
+                          {
+                              Text = e.Name,
+                              Value = e.Id.ToString()
+                          }).ToList();
             items.Add(new SelectListItem() { Text = "Unknown", Value = "" });
             return items;
         }

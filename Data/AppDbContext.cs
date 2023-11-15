@@ -1,4 +1,5 @@
 ﻿using Data.Entities;
+using Data.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Data
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "contacts.db");
+            DbPath = System.IO.Path.Join(path, "database.db");
         }
 
         public DbSet<ContactEntity> Contacts { get; set; }
@@ -40,8 +41,8 @@ namespace Data
             modelBuilder.Entity<OrganizationEntity>()
                 .OwnsOne(o => o.Address)
                 .HasData(
-                new { OrganizationEntityId = 1, City = "Kraków", Street="św. Filipa 17", PostalCode="31-150"},
-                new { OrganizationEntityID = 2, City = "Kraków", Street = "Pawia 5", PostalCode = "33-050" }
+                    new { OrganizationEntityId = 1, City = "Kraków", Street = "św. Filipa 17", PostalCode = "31-150" },
+                    new { OrganizationEntityId = 2, City = "Kraków", Street = "Pawia 5", PostalCode = "33-050" }
                 );
 
 

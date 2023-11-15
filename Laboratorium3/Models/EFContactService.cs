@@ -39,7 +39,7 @@ namespace Laboratorium3.Models
 
         public List<OrganizationEntity> FindAllOrganizations()
         {
-            throw new NotImplementedException;
+           return _context.Organization.ToList();
         }
 
         public Contact? FindById(int id)

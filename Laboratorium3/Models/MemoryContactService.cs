@@ -1,4 +1,6 @@
 ﻿using System;
+using Data.Entities;
+
 namespace Laboratorium3.Models
 {
 
@@ -36,6 +38,10 @@ namespace Laboratorium3.Models
         public void Update(Contact item)
         {
             _items[item.Id] = item;
+        }
+        public List<OrganizationEntity> FindAllOrganizations()
+        {
+            throw new NotImplementedException();
         }
     }
 }
