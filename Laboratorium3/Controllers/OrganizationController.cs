@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Data;
 using Data.Entities;
+using Laboratorium3.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -58,15 +59,15 @@ namespace Laboratorium3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description")] OrganizationEntity organizationEntity)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description")] Organization organization)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(organizationEntity);
+                _context.Add(organization);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(organizationEntity);
+            return View(organization);
         }
 
         // GET: Organization/Edit/5
