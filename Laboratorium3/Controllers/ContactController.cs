@@ -1,9 +1,11 @@
 ﻿using Laboratorium3.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Laboratorium3.Controllers
 {
+    [Authorize]
     public class ContactController : Controller
     {
         private readonly IContactService _contactService;
