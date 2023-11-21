@@ -2,7 +2,7 @@
 
 namespace Laboratorium3.Models
 {
-    public class ContactMapper // dodac organization
+    public class ContactMapper 
     {
         public static ContactEntity ToEntity(Contact model)
         {
