@@ -1,4 +1,5 @@
 ﻿using System;
+using Data.Entities;
 using Laboratorium3.Models;
 
 namespace Laboratorium3_Product.Models
@@ -10,6 +11,7 @@ namespace Laboratorium3_Product.Models
         void Update(Product product);
         List<Product> FindAll();
         Product? FindById(int id);
+        List<ProducentEntity> FindAllProducentsForVieModel();
     }
 }
 

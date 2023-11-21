@@ -25,6 +25,7 @@ namespace Data
         public DbSet<ContactEntity> Contacts { get; set; }
         public DbSet<ProductEntity> Products { get; set; }
         public DbSet<OrganizationEntity> Organization { get; set; }
+        public DbSet<ProducentEntity> Producent { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)=>
             options.UseSqlite($"Data Source={DbPath}");
@@ -34,46 +35,24 @@ namespace Data
             base.OnModelCreating(modelBuilder);
 
             var adminRole = new IdentityRole()
-            {
-                Name = "admin",
-                NormalizedName ="ADMIN",
-                Id = Guid.NewGuid().ToString(),
-            
-            };
+            { Name = "admin", NormalizedName ="ADMIN", Id = Guid.NewGuid().ToString()};
             adminRole.ConcurrencyStamp = adminRole.Id;
             modelBuilder.Entity<IdentityRole>()
-                .HasData(
-                adminRole
-                );
+                .HasData(adminRole);
 
             PasswordHasher<IdentityUser> passwordHasher = new PasswordHasher<IdentityUser>();
 
             var user = new IdentityUser()
-            {
-                UserName = "justyna.malinowska2001@op.pl",
-                Email = "justyna.malinowska2001@op.pl",
-                NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL",
-                EmailConfirmed = true,
-                Id = Guid.NewGuid().ToString()
-            };
+            { UserName = "justyna.malinowska2001@op.pl", Email = "justyna.malinowska2001@op.pl", NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL", EmailConfirmed = true, Id = Guid.NewGuid().ToString() };
             passwordHasher.HashPassword(user, "123ABC!!!");
             modelBuilder.Entity<IdentityUser>()
-                .HasData(
-                user
-                );
+                .HasData(user);
 
             modelBuilder.Entity<IdentityUserRole<string>>()
                 .HasData(
-                new IdentityUserRole<string>()
-                { 
-                    RoleId = adminRole.Id,
-                    UserId = user.Id
-                }
+                new IdentityUserRole<string>() { RoleId = adminRole.Id, UserId = user.Id }
                 );
-
-
-
-
+            
             modelBuilder.Entity<ContactEntity>()
                 .HasOne(c => c.Organization)
                 .WithMany(o => o.Contacts)
@@ -90,15 +69,30 @@ namespace Data
                     new { OrganizationEntityId = 2, City = "Kraków", Street = "Pawia 5", PostalCode = "33-050" }
                 );
 
-
             modelBuilder.Entity<ContactEntity>().HasData(
                 new ContactEntity() { ContactId = 1, Name = "Adam", Email = "adam@wsei.edu.pl", Phone = "127813268163", BirthDate = new DateTime(2000, 10, 10), Priority=1, OrganizationId= 1 },
                 new ContactEntity() { ContactId = 2, Name = "Ewa", Email = "ewa@wsei.edu.pl", Phone = "293443823478", BirthDate = new DateTime(1999, 8, 10), Priority = 2, OrganizationId=2 }
             );
 
-            modelBuilder.Entity<ProductEntity>().HasData(
-                new ProductEntity() { Id = 1, ProductName="Lamp", Price=99, Producent="Ikea", DateOfProduction= new DateTime(2023, 11, 8, 15, 30, 0), Description= "Lampa sufitowa/ścienna LED, smart bezprzewodowy przyciemniany/ciepły biały biały, 37 cm", Quality=2 }
+            modelBuilder.Entity<ProductEntity>()
+                .HasOne(c => c.Producent)
+                .WithMany(o => o.Products)
+                .HasForeignKey(c => c.ProducentId);
+            
+            modelBuilder.Entity<ProducentEntity>().HasData(
+                new ProducentEntity() { Id=1, Name="IKEA", Description="Szwedzka sieć sklepów meblowych.", },
+                new ProducentEntity() { Id=2, Name="JYSK", Description="Sieć sklepów dekoracyjnych."}
+            );
+            
+            modelBuilder.Entity<ProducentEntity>()
+                .OwnsOne(e => e.Address)
+                .HasData(
+                    new { ProducentEntityId = 1, City = "Warszawa", Street = "Lipowa 12", PostalCode = "39-020" },
+                    new { ProducentEntityId = 2, City = "Katowice", Street = "Siewna 5", PostalCode = "23-350" }
                 );
+
+            modelBuilder.Entity<ProductEntity>().HasData(
+                new ProductEntity() { Id = 1, ProductName="Lamp", Price=99, DateOfProduction= new DateTime(2023, 11, 8, 15, 30, 0), Description= "Lampa sufitowa/ścienna LED, smart bezprzewodowy przyciemniany/ciepły biały biały, 37 cm", Quality=2, ProducentId = 1 });
         }
     }
 }

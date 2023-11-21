@@ -1,4 +1,5 @@
 ﻿using System;
+using Data.Entities;
 using Laboratorium3_Product.Models;
 
 namespace Laboratorium3.Models
@@ -31,6 +32,10 @@ namespace Laboratorium3.Models
         public void Update(Product item)
         {
             _items[item.Id] = item;
+        }
+        public List<ProducentEntity> FindAllProducents()
+        {
+            throw new NotImplementedException();
         }
     }
 }

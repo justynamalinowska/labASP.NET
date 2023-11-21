@@ -9,16 +9,17 @@ using System.Xml.Linq;
 
 namespace Data.Entities
 {
-    [Table("products")]
+    [Table("Products")]
     public class ProductEntity
     {
         public int Id { get; set; }
         [MaxLength(50)]
         public string ProductName { get; set; }
         public decimal Price { get; set; }
-        public string Producent { get; set; }
         public DateTime? DateOfProduction { get; set; }
         public string Description { get; set; }
         public int Quality { get; set; }
+        public int? ProducentId { get; set; }
+        public ProducentEntity? Producent { get; set; }
     }
 }

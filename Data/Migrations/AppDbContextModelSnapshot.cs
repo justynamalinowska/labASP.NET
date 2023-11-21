@@ -107,6 +107,39 @@ namespace Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Data.Entities.ProducentEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Producents");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Szwedzka sieć sklepów meblowych.",
+                            Name = "IKEA"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Sieć sklepów dekoracyjnych.",
+                            Name = "JYSK"
+                        });
+                });
+
             modelBuilder.Entity("Data.Entities.ProductEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -123,9 +156,8 @@ namespace Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Producent")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("ProducentId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
@@ -137,7 +169,9 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("products");
+                    b.HasIndex("ProducentId");
+
+                    b.ToTable("Products");
 
                     b.HasData(
                         new
@@ -146,7 +180,7 @@ namespace Data.Migrations
                             DateOfProduction = new DateTime(2023, 11, 8, 15, 30, 0, 0, DateTimeKind.Unspecified),
                             Description = "Lampa sufitowa/ścienna LED, smart bezprzewodowy przyciemniany/ciepły biały biały, 37 cm",
                             Price = 99m,
-                            Producent = "Ikea",
+                            ProducentId = 1,
                             ProductName = "Lamp",
                             Quality = 2
                         });
@@ -180,8 +214,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e4495f75-dadb-47f8-b6bb-6edbad6beadd",
-                            ConcurrencyStamp = "e4495f75-dadb-47f8-b6bb-6edbad6beadd",
+                            Id = "c29a0cf4-6ae2-4d4c-8c17-7f1f13aa07e5",
+                            ConcurrencyStamp = "c29a0cf4-6ae2-4d4c-8c17-7f1f13aa07e5",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -276,17 +310,17 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0796f9ae-5d6f-4f27-a399-0a2fb6cf94a6",
+                            Id = "88a2575e-d3d4-494a-be36-39c9f2be57c4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "852455d8-f408-4821-bff1-0803f875c27a",
+                            ConcurrencyStamp = "3292f719-1981-4197-b8ce-4f04cc0435c4",
                             Email = "justyna.malinowska2001@op.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "84e6f0d0-0bff-4288-b239-aaa00366f479",
+                            SecurityStamp = "5cab8768-d1a9-4832-9d1d-3a9eed4aeba6",
                             TwoFactorEnabled = false,
-                            UserName = "Justyna"
+                            UserName = "justyna.malinowska2001@op.pl"
                         });
                 });
 
@@ -352,8 +386,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "0796f9ae-5d6f-4f27-a399-0a2fb6cf94a6",
-                            RoleId = "e4495f75-dadb-47f8-b6bb-6edbad6beadd"
+                            UserId = "88a2575e-d3d4-494a-be36-39c9f2be57c4",
+                            RoleId = "c29a0cf4-6ae2-4d4c-8c17-7f1f13aa07e5"
                         });
                 });
 
@@ -400,6 +434,9 @@ namespace Data.Migrations
                                 .IsRequired()
                                 .HasColumnType("TEXT");
 
+                            b1.Property<int?>("ProducentId")
+                                .HasColumnType("INTEGER");
+
                             b1.Property<string>("Street")
                                 .IsRequired()
                                 .HasColumnType("TEXT");
@@ -429,6 +466,64 @@ namespace Data.Migrations
                         });
 
                     b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("Data.Entities.ProducentEntity", b =>
+                {
+                    b.OwnsOne("Data.Models.Address", "Address", b1 =>
+                        {
+                            b1.Property<int>("ProducentEntityId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("PostalCode")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<int?>("ProducentId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("Street")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("ProducentEntityId");
+
+                            b1.ToTable("Producents");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ProducentEntityId");
+
+                            b1.HasData(
+                                new
+                                {
+                                    ProducentEntityId = 1,
+                                    City = "Warszawa",
+                                    PostalCode = "39-020",
+                                    Street = "Lipowa 12"
+                                },
+                                new
+                                {
+                                    ProducentEntityId = 2,
+                                    City = "Katowice",
+                                    PostalCode = "23-350",
+                                    Street = "Siewna 5"
+                                });
+                        });
+
+                    b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("Data.Entities.ProductEntity", b =>
+                {
+                    b.HasOne("Data.Entities.ProducentEntity", "Producent")
+                        .WithMany("Products")
+                        .HasForeignKey("ProducentId");
+
+                    b.Navigation("Producent");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -485,6 +580,11 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
                 {
                     b.Navigation("Contacts");
+                });
+
+            modelBuilder.Entity("Data.Entities.ProducentEntity", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

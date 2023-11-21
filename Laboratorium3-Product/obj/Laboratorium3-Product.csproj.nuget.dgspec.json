@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\justyna.malinowska\\source\\repos\\labASP.NET\\Nowy folder\\Laboratorium3-Product\\Laboratorium3-Product.csproj": {}
+    "/Users/justynamalinowska/RiderProjects/labASP.NET/Laboratorium3-Product/Laboratorium3-Product.csproj": {}
   },
   "projects": {
-    "D:\\Users\\justyna.malinowska\\source\\repos\\labASP.NET\\Nowy folder\\Data\\Data.csproj": {
+    "/Users/justynamalinowska/RiderProjects/labASP.NET/Data/Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\justyna.malinowska\\source\\repos\\labASP.NET\\Nowy folder\\Data\\Data.csproj",
+        "projectUniqueName": "/Users/justynamalinowska/RiderProjects/labASP.NET/Data/Data.csproj",
         "projectName": "Data",
-        "projectPath": "D:\\Users\\justyna.malinowska\\source\\repos\\labASP.NET\\Nowy folder\\Data\\Data.csproj",
-        "packagesPath": "D:\\Users\\justyna.malinowska\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\justyna.malinowska\\source\\repos\\labASP.NET\\Nowy folder\\Data\\obj\\",
+        "projectPath": "/Users/justynamalinowska/RiderProjects/labASP.NET/Data/Data.csproj",
+        "packagesPath": "/Users/justynamalinowska/.nuget/packages/",
+        "outputPath": "/Users/justynamalinowska/RiderProjects/labASP.NET/Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "D:\\Users\\justyna.malinowska\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/justynamalinowska/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -75,37 +74,35 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Users\\justyna.malinowska\\source\\repos\\labASP.NET\\Nowy folder\\Laboratorium3-Product\\Laboratorium3-Product.csproj": {
+    "/Users/justynamalinowska/RiderProjects/labASP.NET/Laboratorium3-Product/Laboratorium3-Product.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\justyna.malinowska\\source\\repos\\labASP.NET\\Nowy folder\\Laboratorium3-Product\\Laboratorium3-Product.csproj",
+        "projectUniqueName": "/Users/justynamalinowska/RiderProjects/labASP.NET/Laboratorium3-Product/Laboratorium3-Product.csproj",
         "projectName": "Laboratorium3-Product",
-        "projectPath": "D:\\Users\\justyna.malinowska\\source\\repos\\labASP.NET\\Nowy folder\\Laboratorium3-Product\\Laboratorium3-Product.csproj",
-        "packagesPath": "D:\\Users\\justyna.malinowska\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\justyna.malinowska\\source\\repos\\labASP.NET\\Nowy folder\\Laboratorium3-Product\\obj\\",
+        "projectPath": "/Users/justynamalinowska/RiderProjects/labASP.NET/Laboratorium3-Product/Laboratorium3-Product.csproj",
+        "packagesPath": "/Users/justynamalinowska/.nuget/packages/",
+        "outputPath": "/Users/justynamalinowska/RiderProjects/labASP.NET/Laboratorium3-Product/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "D:\\Users\\justyna.malinowska\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/justynamalinowska/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Users\\justyna.malinowska\\source\\repos\\labASP.NET\\Nowy folder\\Data\\Data.csproj": {
-                "projectPath": "D:\\Users\\justyna.malinowska\\source\\repos\\labASP.NET\\Nowy folder\\Data\\Data.csproj"
+              "/Users/justynamalinowska/RiderProjects/labASP.NET/Data/Data.csproj": {
+                "projectPath": "/Users/justynamalinowska/RiderProjects/labASP.NET/Data/Data.csproj"
               }
             }
           }
@@ -138,7 +135,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
         }
       }
     }
