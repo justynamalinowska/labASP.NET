@@ -40,9 +40,11 @@
             <span asp-validation-for="Quality" class="text-danger"></span>
         </div>
     </div>
-    <div class="form-group">
-        <select class="form-control" asp-for="ProducentId" asp-items="@Model.Producent"></select>
-    </div>
+   <div class="mb-3">
+           <label asp-for="ProducentId"></label>
+           <select class="form-control" asp-for="ProducentId" asp-items="@Model.ProducentList"></select>
+           <a asp-action="Create" asp-controller="Producent">Add new organization</a>
+       </div>
     <div class="form-group">
         <button class="btn btn-primary" type="submit">Create</button>
         <button class="btn btn-secondary" type="reset">Reset</button>
