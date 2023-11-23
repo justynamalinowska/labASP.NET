@@ -2,6 +2,7 @@
 using Data;
 using Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using Laboratorium3.Models;
 
 namespace Laboratorium3_Product.Models
 {
@@ -29,7 +30,6 @@ namespace Laboratorium3_Product.Models
             {
                 _context.Products.Remove(find);
                 _context.SaveChanges();
-
             }
         }
 
@@ -48,6 +48,11 @@ namespace Laboratorium3_Product.Models
         {
             _context.Products.Update(ProductMapper.ToEntity(product));
             _context.SaveChanges();
+        }
+
+        public List<ProducentEntity> FindAllProducents()
+        {
+            return _context.Producent.ToList();
         }
     }
 }

@@ -214,8 +214,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5657a86c-8c82-41b8-878e-e193040523ad",
-                            ConcurrencyStamp = "5657a86c-8c82-41b8-878e-e193040523ad",
+                            Id = "7eced0d6-c0f1-4075-b399-1cff1251afce",
+                            ConcurrencyStamp = "7eced0d6-c0f1-4075-b399-1cff1251afce",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -310,15 +310,15 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d607179f-964d-4f69-bd3e-94cbc5eb732d",
+                            Id = "dc104ad3-22be-4729-bc0c-dacda462ec4f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1e82d056-99a3-41b0-ab36-0d99e9d19bf1",
+                            ConcurrencyStamp = "13953da0-3f5d-4b38-8e5f-6c33cb414568",
                             Email = "justyna.malinowska2001@op.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5e8cedeb-3651-4e11-8f09-7faa995c4515",
+                            SecurityStamp = "cd097dd8-9835-4cad-873c-1efa86cc7dcd",
                             TwoFactorEnabled = false,
                             UserName = "justyna.malinowska2001@op.pl"
                         });
@@ -386,8 +386,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "d607179f-964d-4f69-bd3e-94cbc5eb732d",
-                            RoleId = "5657a86c-8c82-41b8-878e-e193040523ad"
+                            UserId = "dc104ad3-22be-4729-bc0c-dacda462ec4f",
+                            RoleId = "7eced0d6-c0f1-4075-b399-1cff1251afce"
                         });
                 });
 
@@ -429,9 +429,6 @@ namespace Data.Migrations
                             b1.Property<string>("City")
                                 .IsRequired()
                                 .HasColumnType("TEXT");
-
-                            b1.Property<int?>("ContactId")
-                                .HasColumnType("INTEGER");
 
                             b1.Property<string>("PostalCode")
                                 .IsRequired()
@@ -482,9 +479,6 @@ namespace Data.Migrations
                             b1.Property<string>("PostalCode")
                                 .IsRequired()
                                 .HasColumnType("TEXT");
-
-                            b1.Property<int?>("ProducentId")
-                                .HasColumnType("INTEGER");
 
                             b1.Property<string>("Street")
                                 .IsRequired()

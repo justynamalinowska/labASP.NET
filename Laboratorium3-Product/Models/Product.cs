@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Laboratorium3_Product.Models
 {
@@ -13,7 +15,6 @@ namespace Laboratorium3_Product.Models
         [Display(Name = "Product Name")]
         public string ProductName { get; set; }
         public decimal Price { get; set; }
-        public string Producent { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Date of production")]
         public DateTime? DateOfProduction { get; set; }
@@ -22,6 +23,10 @@ namespace Laboratorium3_Product.Models
         public string Description { get; set; }
         [Display(Name = "Quality")]
         public Quality Quality { get; set; }
+        [HiddenInput]
+        public int ProducentId { get; set; }
+        [ValidateNever]
+        public List<SelectListItem> ProducentList { get; set; }
     }
 }
 

@@ -10,11 +10,10 @@ namespace Laboratorium3_Product.Models
                 Id = model.Id,
                 ProductName = model.ProductName,
                 Price = model.Price,
-                Producent = model.Producent,
                 DateOfProduction = model.DateOfProduction,
                 Description = model.Description,
                 Quality = (int)model.Quality,
-
+                ProducentId = model.ProducentId
             };
         }
         public static Product FromEntity(ProductEntity model)
@@ -24,10 +23,10 @@ namespace Laboratorium3_Product.Models
                 Id = model.Id,
                 ProductName = model.ProductName,
                 Price = model.Price,
-                Producent = model.Producent,
                 DateOfProduction = model.DateOfProduction,
                 Description = model.Description,
                 Quality = (Quality)model.Quality,
+                ProducentId = (int)model.ProducentId
             };
         }
     }
