@@ -1,8 +1,12 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "RksM4jnIbqQHU6Km1J1IAOalLh7FlA/M1Y/NsT/uwPrtFzd0Pv4v77SnXUAFao93L444e8bKO7a+XYKAqo5wuQ==",
+=======
+  "dgSpecHash": "0uJAijNCTbBSzE3v5bw0BuPdOQOL0srrlxaX1CYlL1SsDpW8ZjbL5EWocKwH4gEEX6yYJsLAGJV6iHw6oqabEg==",
+>>>>>>> Stashed changes
   "success": true,
-  "projectFilePath": "/Users/justynamalinowska/RiderProjects/labASP.NET/Laboratorium3-Product/Laboratorium3-Product.csproj",
+  "projectFilePath": "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium3-Product/Laboratorium3-Product.csproj",
   "expectedPackageFiles": [
     "/Users/justynamalinowska/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",

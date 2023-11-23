@@ -60,7 +60,7 @@ namespace Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
-                    Address_ProducentId = table.Column<int>(type: "INTEGER", nullable: true),
+                    Address_ContactId = table.Column<int>(type: "INTEGER", nullable: true),
                     Address_City = table.Column<string>(type: "TEXT", nullable: true),
                     Address_Street = table.Column<string>(type: "TEXT", nullable: true),
                     Address_PostalCode = table.Column<string>(type: "TEXT", nullable: true)
@@ -78,10 +78,10 @@ namespace Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
-                    Address_ProducentId = table.Column<int>(type: "INTEGER", nullable: true),
-                    Address_City = table.Column<string>(type: "TEXT", nullable: true),
-                    Address_Street = table.Column<string>(type: "TEXT", nullable: true),
-                    Address_PostalCode = table.Column<string>(type: "TEXT", nullable: true)
+                    Location_ProducentId = table.Column<int>(type: "INTEGER", nullable: true),
+                    Location_City = table.Column<string>(type: "TEXT", nullable: true),
+                    Location_Street = table.Column<string>(type: "TEXT", nullable: true),
+                    Location_PostalCode = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -243,25 +243,25 @@ namespace Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "c29a0cf4-6ae2-4d4c-8c17-7f1f13aa07e5", "c29a0cf4-6ae2-4d4c-8c17-7f1f13aa07e5", "admin", "ADMIN" });
+                values: new object[] { "d0d75b61-44d8-41b3-b4d5-2296a17e10e5", "d0d75b61-44d8-41b3-b4d5-2296a17e10e5", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "88a2575e-d3d4-494a-be36-39c9f2be57c4", 0, "3292f719-1981-4197-b8ce-4f04cc0435c4", "justyna.malinowska2001@op.pl", true, false, null, "JUSTYNA.MALINOWSKA2001@OP.PL", null, null, null, false, "5cab8768-d1a9-4832-9d1d-3a9eed4aeba6", false, "justyna.malinowska2001@op.pl" });
+                values: new object[] { "7ba190a4-16e4-4426-af15-87ece1263a11", 0, "d24cb608-eecd-4682-bc64-16e0398484c2", "justyna.malinowska2001@op.pl", true, false, null, "JUSTYNA.MALINOWSKA2001@OP.PL", null, null, null, false, "9fb4dd09-8ce7-4080-b86c-1581dce6a8e3", false, "justyna.malinowska2001@op.pl" });
 
             migrationBuilder.InsertData(
                 table: "Organizations",
-                columns: new[] { "Id", "Description", "Name", "Address_City", "Address_PostalCode", "Address_ProducentId", "Address_Street" },
+                columns: new[] { "Id", "Description", "Name", "Address_City", "Address_ContactId", "Address_PostalCode", "Address_Street" },
                 values: new object[,]
                 {
-                    { 1, "Uczelnia wyższa", "WSEI", "Kraków", "31-150", null, "św. Filipa 17" },
-                    { 2, "Przewoźnik kolejowy", "PKP", "Kraków", "33-050", null, "Pawia 5" }
+                    { 1, "Uczelnia wyższa", "WSEI", "Kraków", null, "31-150", "św. Filipa 17" },
+                    { 2, "Przewoźnik kolejowy", "PKP", "Kraków", null, "33-050", "Pawia 5" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Producents",
-                columns: new[] { "Id", "Description", "Name", "Address_City", "Address_PostalCode", "Address_ProducentId", "Address_Street" },
+                columns: new[] { "Id", "Description", "Name", "Location_City", "Location_PostalCode", "Location_ProducentId", "Location_Street" },
                 values: new object[,]
                 {
                     { 1, "Szwedzka sieć sklepów meblowych.", "IKEA", "Warszawa", "39-020", null, "Lipowa 12" },
@@ -271,7 +271,7 @@ namespace Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "c29a0cf4-6ae2-4d4c-8c17-7f1f13aa07e5", "88a2575e-d3d4-494a-be36-39c9f2be57c4" });
+                values: new object[] { "d0d75b61-44d8-41b3-b4d5-2296a17e10e5", "7ba190a4-16e4-4426-af15-87ece1263a11" });
 
             migrationBuilder.InsertData(
                 table: "Products",

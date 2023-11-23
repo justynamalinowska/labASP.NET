@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231121205229_Producent")]
-    partial class Producent
+    [Migration("20231122220529_Organizations")]
+    partial class Organizations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -217,8 +217,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c29a0cf4-6ae2-4d4c-8c17-7f1f13aa07e5",
-                            ConcurrencyStamp = "c29a0cf4-6ae2-4d4c-8c17-7f1f13aa07e5",
+                            Id = "5657a86c-8c82-41b8-878e-e193040523ad",
+                            ConcurrencyStamp = "5657a86c-8c82-41b8-878e-e193040523ad",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -313,15 +313,15 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "88a2575e-d3d4-494a-be36-39c9f2be57c4",
+                            Id = "d607179f-964d-4f69-bd3e-94cbc5eb732d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3292f719-1981-4197-b8ce-4f04cc0435c4",
+                            ConcurrencyStamp = "1e82d056-99a3-41b0-ab36-0d99e9d19bf1",
                             Email = "justyna.malinowska2001@op.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5cab8768-d1a9-4832-9d1d-3a9eed4aeba6",
+                            SecurityStamp = "5e8cedeb-3651-4e11-8f09-7faa995c4515",
                             TwoFactorEnabled = false,
                             UserName = "justyna.malinowska2001@op.pl"
                         });
@@ -389,8 +389,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "88a2575e-d3d4-494a-be36-39c9f2be57c4",
-                            RoleId = "c29a0cf4-6ae2-4d4c-8c17-7f1f13aa07e5"
+                            UserId = "d607179f-964d-4f69-bd3e-94cbc5eb732d",
+                            RoleId = "5657a86c-8c82-41b8-878e-e193040523ad"
                         });
                 });
 
@@ -433,12 +433,12 @@ namespace Data.Migrations
                                 .IsRequired()
                                 .HasColumnType("TEXT");
 
+                            b1.Property<int?>("ContactId")
+                                .HasColumnType("INTEGER");
+
                             b1.Property<string>("PostalCode")
                                 .IsRequired()
                                 .HasColumnType("TEXT");
-
-                            b1.Property<int?>("ProducentId")
-                                .HasColumnType("INTEGER");
 
                             b1.Property<string>("Street")
                                 .IsRequired()
@@ -473,7 +473,7 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.ProducentEntity", b =>
                 {
-                    b.OwnsOne("Data.Models.Address", "Address", b1 =>
+                    b.OwnsOne("Data.Models.Location", "Location", b1 =>
                         {
                             b1.Property<int>("ProducentEntityId")
                                 .HasColumnType("INTEGER");
@@ -517,7 +517,7 @@ namespace Data.Migrations
                                 });
                         });
 
-                    b.Navigation("Address");
+                    b.Navigation("Location");
                 });
 
             modelBuilder.Entity("Data.Entities.ProductEntity", b =>

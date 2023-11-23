@@ -51,7 +51,7 @@ namespace Laboratorium3.Controllers
         // GET: Organization/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new Organization());
         }
 
         // POST: Organization/Create

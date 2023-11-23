@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/justynamalinowska/RiderProjects/labASP.NET/Laboratorium2/Laboratorium2.csproj": {}
+    "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium2/Laboratorium2.csproj": {}
   },
   "projects": {
-    "/Users/justynamalinowska/RiderProjects/labASP.NET/Laboratorium2/Laboratorium2.csproj": {
+    "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium2/Laboratorium2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/justynamalinowska/RiderProjects/labASP.NET/Laboratorium2/Laboratorium2.csproj",
+        "projectUniqueName": "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium2/Laboratorium2.csproj",
         "projectName": "Laboratorium2",
-        "projectPath": "/Users/justynamalinowska/RiderProjects/labASP.NET/Laboratorium2/Laboratorium2.csproj",
+        "projectPath": "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium2/Laboratorium2.csproj",
         "packagesPath": "/Users/justynamalinowska/.nuget/packages/",
-        "outputPath": "/Users/justynamalinowska/RiderProjects/labASP.NET/Laboratorium2/obj/",
+        "outputPath": "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium2/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/justynamalinowska/.nuget/NuGet/NuGet.Config"

@@ -19,7 +19,7 @@ namespace Data.Entities
         public DateTime? DateOfProduction { get; set; }
         public string Description { get; set; }
         public int Quality { get; set; }
-        public int? ProducentId { get; set; }
         public ProducentEntity? Producent { get; set; }
+        public int? ProducentId { get; set; }
     }
 }

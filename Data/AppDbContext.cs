@@ -19,7 +19,7 @@ namespace Data
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "database.db");
+            DbPath = System.IO.Path.Join(path, "database1.db");
         }
 
         public DbSet<ContactEntity> Contacts { get; set; }
@@ -85,7 +85,7 @@ namespace Data
             );
             
             modelBuilder.Entity<ProducentEntity>()
-                .OwnsOne(e => e.Address)
+                .OwnsOne(e => e.Location)
                 .HasData(
                     new { ProducentEntityId = 1, City = "Warszawa", Street = "Lipowa 12", PostalCode = "39-020" },
                     new { ProducentEntityId = 2, City = "Katowice", Street = "Siewna 5", PostalCode = "23-350" }

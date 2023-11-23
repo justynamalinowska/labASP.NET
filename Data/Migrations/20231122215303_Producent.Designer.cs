@@ -3,6 +3,7 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231122215303_Producent")]
+    partial class Producent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
@@ -214,8 +217,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5657a86c-8c82-41b8-878e-e193040523ad",
-                            ConcurrencyStamp = "5657a86c-8c82-41b8-878e-e193040523ad",
+                            Id = "d0d75b61-44d8-41b3-b4d5-2296a17e10e5",
+                            ConcurrencyStamp = "d0d75b61-44d8-41b3-b4d5-2296a17e10e5",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -310,15 +313,15 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d607179f-964d-4f69-bd3e-94cbc5eb732d",
+                            Id = "7ba190a4-16e4-4426-af15-87ece1263a11",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1e82d056-99a3-41b0-ab36-0d99e9d19bf1",
+                            ConcurrencyStamp = "d24cb608-eecd-4682-bc64-16e0398484c2",
                             Email = "justyna.malinowska2001@op.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5e8cedeb-3651-4e11-8f09-7faa995c4515",
+                            SecurityStamp = "9fb4dd09-8ce7-4080-b86c-1581dce6a8e3",
                             TwoFactorEnabled = false,
                             UserName = "justyna.malinowska2001@op.pl"
                         });
@@ -386,8 +389,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "d607179f-964d-4f69-bd3e-94cbc5eb732d",
-                            RoleId = "5657a86c-8c82-41b8-878e-e193040523ad"
+                            UserId = "7ba190a4-16e4-4426-af15-87ece1263a11",
+                            RoleId = "d0d75b61-44d8-41b3-b4d5-2296a17e10e5"
                         });
                 });
 
