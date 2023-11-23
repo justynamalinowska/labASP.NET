@@ -23,8 +23,6 @@ namespace Data.Entities
         public DateTime? BirthDate { get; set; }
         public int Priority { get; set;}
         public OrganizationEntity? Organization { get; set; }
-        
-    
         public int? OrganizationId { get; set; }
     }
 }

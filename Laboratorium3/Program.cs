@@ -17,6 +17,7 @@ namespace Laboratorium3
             builder.Services.AddRazorPages();
             builder.Services.AddSession();
             builder.Services.AddTransient<IContactService, EFContactService>();
+            builder.Services.AddTransient<IOrganizationService, EFOrganizationService>();
             builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
             builder.Services.AddDbContext<AppDbContext>();
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)

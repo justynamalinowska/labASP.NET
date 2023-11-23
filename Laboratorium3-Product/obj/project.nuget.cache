@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< Updated upstream
-  "dgSpecHash": "RksM4jnIbqQHU6Km1J1IAOalLh7FlA/M1Y/NsT/uwPrtFzd0Pv4v77SnXUAFao93L444e8bKO7a+XYKAqo5wuQ==",
-=======
-  "dgSpecHash": "0uJAijNCTbBSzE3v5bw0BuPdOQOL0srrlxaX1CYlL1SsDpW8ZjbL5EWocKwH4gEEX6yYJsLAGJV6iHw6oqabEg==",
->>>>>>> Stashed changes
+  "dgSpecHash": "VdE/U5CpMRp/Qv0DGdVSxquIA2SiwBRgoIqtAupFWiAkKVg6Dv4zT4ppDJjxBn9eFTp0hnUU3EoFzrqfLYPYDA==",
   "success": true,
   "projectFilePath": "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium3-Product/Laboratorium3-Product.csproj",
   "expectedPackageFiles": [
@@ -60,9 +56,10 @@
     "/Users/justynamalinowska/.nuget/packages/humanizer.core.zh-cn/2.14.1/humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/humanizer.core.zh-hans/2.14.1/humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/humanizer.core.zh-hant/2.14.1/humanizer.core.zh-hant.2.14.1.nupkg.sha512",
-    "/Users/justynamalinowska/.nuget/packages/microsoft.aspnetcore.cryptography.internal/6.0.25/microsoft.aspnetcore.cryptography.internal.6.0.25.nupkg.sha512",
-    "/Users/justynamalinowska/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/6.0.25/microsoft.aspnetcore.cryptography.keyderivation.6.0.25.nupkg.sha512",
+    "/Users/justynamalinowska/.nuget/packages/microsoft.aspnetcore.cryptography.internal/7.0.14/microsoft.aspnetcore.cryptography.internal.7.0.14.nupkg.sha512",
+    "/Users/justynamalinowska/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/7.0.14/microsoft.aspnetcore.cryptography.keyderivation.7.0.14.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/6.0.25/microsoft.aspnetcore.identity.entityframeworkcore.6.0.25.nupkg.sha512",
+    "/Users/justynamalinowska/.nuget/packages/microsoft.aspnetcore.identity.ui/7.0.14/microsoft.aspnetcore.identity.ui.7.0.14.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/microsoft.aspnetcore.razor.language/6.0.11/microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/microsoft.build/17.3.2/microsoft.build.17.3.2.nupkg.sha512",
@@ -99,11 +96,13 @@
     "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.dependencyinjection/7.0.0/microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.dependencymodel/7.0.0/microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",
-    "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.identity.core/6.0.25/microsoft.extensions.identity.core.6.0.25.nupkg.sha512",
-    "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.identity.stores/6.0.25/microsoft.extensions.identity.stores.6.0.25.nupkg.sha512",
+    "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.fileproviders.abstractions/7.0.0/microsoft.extensions.fileproviders.abstractions.7.0.0.nupkg.sha512",
+    "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.fileproviders.embedded/7.0.14/microsoft.extensions.fileproviders.embedded.7.0.14.nupkg.sha512",
+    "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.identity.core/7.0.14/microsoft.extensions.identity.core.7.0.14.nupkg.sha512",
+    "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.identity.stores/7.0.14/microsoft.extensions.identity.stores.7.0.14.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.logging/7.0.0/microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.logging.abstractions/7.0.0/microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
-    "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.options/7.0.0/microsoft.extensions.options.7.0.0.nupkg.sha512",
+    "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.options/7.0.1/microsoft.extensions.options.7.0.1.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/microsoft.identity.client/4.47.2/microsoft.identity.client.4.47.2.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/microsoft.identity.client.extensions.msal/2.19.3/microsoft.identity.client.extensions.msal.2.19.3.nupkg.sha512",

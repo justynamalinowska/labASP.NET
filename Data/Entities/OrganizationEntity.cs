@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using Data.Models;
+using System.Collections.Generic;
 
 namespace Data.Entities
 {

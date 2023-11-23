@@ -7,161 +7,80 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Data;
 using Data.Entities;
+using System.Collections.Generic;
 using Laboratorium3.Models;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Laboratorium3.Controllers
 {
     public class OrganizationController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IOrganizationService _organizationService;
 
-        public OrganizationController(AppDbContext context)
+        public OrganizationController(IOrganizationService organizationService)
         {
-            _context = context;
+            _organizationService = organizationService;
         }
-
-        // GET: Organization
-        public async Task<IActionResult> Index()
+        
+        public IActionResult Index()
         {
-            return _context.Organization != null ?
-                        View(await _context.Organization.ToListAsync()) :
-                        Problem("Entity set 'AppDbContext.Organization'  is null.");
+            var organizations = _organizationService.FindAll();
+            return View(organizations);
         }
-
-        // GET: Organization/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Organization == null)
-            {
-                return NotFound();
-            }
-
-            var organizationEntity = await _context.Organization
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (organizationEntity == null)
-            {
-                return NotFound();
-            }
-
-            return View(organizationEntity);
-        }
-
-        // GET: Organization/Create
+        
+        
+        [HttpGet]
         public IActionResult Create()
         {
             return View(new Organization());
         }
-
-        // POST: Organization/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description")] Organization organization)
+        public IActionResult Create(Organization organization)
+        {
+            if (ModelState.IsValid) 
+            {
+                _organizationService.Add(organization);
+                return RedirectToAction("Index");
+            }
+            return View(organization); 
+        }
+        
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            return View(_organizationService.FindById(id));    
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Organization model)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(organization);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                _organizationService.Update(model);
+                return RedirectToAction("Index");
             }
-            return View(organization);
-        }
 
-        // GET: Organization/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+            return View();
+        }
+        
+        [HttpGet]
+        public IActionResult Delete(int id)
         {
-            if (id == null || _context.Organization == null)
-            {
-                return NotFound();
-            }
-
-            var organizationEntity = await _context.Organization.FindAsync(id);
-            if (organizationEntity == null)
-            {
-                return NotFound();
-            }
-            return View(organizationEntity);
+            return View(_organizationService.FindById(id));
         }
 
-        // POST: Organization/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description")] OrganizationEntity organizationEntity)
+        public IActionResult Delete(Organization model)
         {
-            if (id != organizationEntity.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(organizationEntity);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!OrganizationEntityExists(organizationEntity.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(organizationEntity);
+            _organizationService.Delete(model.Id);
+            return RedirectToAction("Index");
         }
-
-        // GET: Organization/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        
+        [HttpGet]
+        public IActionResult Details(int id)
         {
-            if (id == null || _context.Organization == null)
-            {
-                return NotFound();
-            }
-
-            var organizationEntity = await _context.Organization
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (organizationEntity == null)
-            {
-                return NotFound();
-            }
-
-            return View(organizationEntity);
+            return View(_organizationService.FindById(id));
         }
-
-        // POST: Organization/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Organization == null)
-            {
-                return Problem("Entity set 'AppDbContext.Organization'  is null.");
-            }
-            var organizationEntity = await _context.Organization.FindAsync(id);
-            if (organizationEntity != null)
-            {
-                _context.Organization.Remove(organizationEntity);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool OrganizationEntityExists(int id)
-        {
-            return (_context.Organization?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
+        
     }
 }
-
