@@ -2,7 +2,7 @@
 using Data.Entities;
 using Laboratorium3_Product.Models;
 
-namespace Laboratorium3.Models
+namespace Laboratorium3_Product.Models
 {
 
     public class MemoryProductService : IProductService

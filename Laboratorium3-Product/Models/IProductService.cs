@@ -1,6 +1,6 @@
 ﻿using System;
 using Data.Entities;
-using Laboratorium3.Models;
+
 
 namespace Laboratorium3_Product.Models
 {

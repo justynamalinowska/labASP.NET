@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Xml.Linq;
-using Laboratorium3.Models;
 
 namespace Laboratorium3_Product.Models
 {

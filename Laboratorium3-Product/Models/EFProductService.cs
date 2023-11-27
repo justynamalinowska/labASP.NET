@@ -2,7 +2,6 @@
 using Data;
 using Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using Laboratorium3.Models;
 
 namespace Laboratorium3_Product.Models
 {
