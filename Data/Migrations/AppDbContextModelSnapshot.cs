@@ -214,10 +214,17 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7eced0d6-c0f1-4075-b399-1cff1251afce",
-                            ConcurrencyStamp = "7eced0d6-c0f1-4075-b399-1cff1251afce",
+                            Id = "b8e3ff89-31fb-4e46-aa39-0769e3188c99",
+                            ConcurrencyStamp = "b8e3ff89-31fb-4e46-aa39-0769e3188c99",
                             Name = "admin",
                             NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "669b7037-89fa-4f4a-a3f3-e7daabb840f3",
+                            ConcurrencyStamp = "669b7037-89fa-4f4a-a3f3-e7daabb840f3",
+                            Name = "user",
+                            NormalizedName = "USER"
                         });
                 });
 
@@ -310,17 +317,35 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "dc104ad3-22be-4729-bc0c-dacda462ec4f",
+                            Id = "d93db747-5b6c-4e82-ad1f-dd7442c79b90",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "13953da0-3f5d-4b38-8e5f-6c33cb414568",
+                            ConcurrencyStamp = "b451e861-d190-4147-b330-24d9b784a5b8",
                             Email = "justyna.malinowska2001@op.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL",
+                            NormalizedUserName = "JUSTYNA",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPREod3bF725LAdjv79ltuXhzHj2XpbX1GtR3gNM0dhHPtPfaMK2FIr/SX+NSE+JfQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cd097dd8-9835-4cad-873c-1efa86cc7dcd",
+                            SecurityStamp = "ec0ac971-ce95-4745-a22e-07e27357ebc3",
                             TwoFactorEnabled = false,
-                            UserName = "justyna.malinowska2001@op.pl"
+                            UserName = "justyna"
+                        },
+                        new
+                        {
+                            Id = "43e5e54f-1375-471a-86e2-924cfb35004c",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "6f0e3867-2f5c-47f8-a4b2-d1b0d6243a50",
+                            Email = "marek@wsei.pl",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "MAREK@WSEI.PL",
+                            NormalizedUserName = "MAREK",
+                            PasswordHash = "AQAAAAEAACcQAAAAELIEYMkWYdogt8Z67aUAwJgyIu8VyTzlq5o72sIjqxs405x6PH/m0yVw9Fb2rVM70w==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "f4a57976-7a05-4f3b-a1e7-2f1249591bd0",
+                            TwoFactorEnabled = false,
+                            UserName = "marek"
                         });
                 });
 
@@ -386,8 +411,13 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "dc104ad3-22be-4729-bc0c-dacda462ec4f",
-                            RoleId = "7eced0d6-c0f1-4075-b399-1cff1251afce"
+                            UserId = "43e5e54f-1375-471a-86e2-924cfb35004c",
+                            RoleId = "b8e3ff89-31fb-4e46-aa39-0769e3188c99"
+                        },
+                        new
+                        {
+                            UserId = "d93db747-5b6c-4e82-ad1f-dd7442c79b90",
+                            RoleId = "b8e3ff89-31fb-4e46-aa39-0769e3188c99"
                         });
                 });
 

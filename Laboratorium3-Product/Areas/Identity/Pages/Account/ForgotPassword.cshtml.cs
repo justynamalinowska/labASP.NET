@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 
-namespace Laboratorium3.Areas.Identity.Pages.Account
+namespace Laboratorium3_Product.Areas.Identity.Pages.Account
 {
     public class ForgotPasswordModel : PageModel
     {
