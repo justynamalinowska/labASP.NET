@@ -42,16 +42,17 @@ namespace Laboratorium3.Models
            return _context.Organization.ToList();
         }
 
-        public List<Contact> FindPage(int page, int size)
+        public PagingList<Contact> FindPage(int page, int size)
         {
-            throw new NotImplementedException();
-            // int totalCount = _context.Contacts.Count(); 
-            // List<ContactEntity> data = _context.Contacts
-            //     .OrderBy(c => c.Name)
-            //     .Skip((page - 1) * size)
-            //     .Take(size)
-            //     .ToList();
-            // return PagingList<Contact>.Create(data, totalCount, page, size);
+            int totalCount = _context.Contacts.Count();
+            var p = PagingList<Contact>.Create(null, totalCount, page, size);
+            var data = _context.Contacts
+                .OrderBy(c => c.Name)
+                .Skip((p.Number - 1) * p.Size)
+                .Take(p.Size)
+                .Select(ContactMapper.FromEntity)
+                .ToList();
+            return p;
         }
 
         public Contact? FindById(int id)

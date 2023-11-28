@@ -4,7 +4,7 @@ namespace Laboratorium3.Models;
 
 public class PagingList<T>
 {
-    public IEnumerable<T> Data { get; } 
+    public List<T> Data { get; set; } 
     public int TotalItems { get; } 
     public int TotalPages { get; } 
     public int Number { get; } 
@@ -14,7 +14,7 @@ public class PagingList<T>
     public bool IsNext { get; } 
     public bool IsPrevious { get; }
 
-    private PagingList(IEnumerable<T> data, int totalItems, int number, int size)
+    private PagingList(List<T> data, int totalItems, int number, int size)
     {
         Data = data; 
         TotalItems = totalItems; 
@@ -27,17 +27,18 @@ public class PagingList<T>
         IsPrevious = !IsFirst; 
     }
 
-    // public static PagingList<T> Create(ICollection<T> data, int totalItems, int number, int size) 
-    // { 
-    //     if (number > page.TotalPages) 
-    //     { 
-    //         return new PagingList<T>(data, totalItems, page.TotalPages, size); 
-    //     } 
-    //     if (number < 1) 
-    //     { 
-    //         return new PagingList<T>(data, totalItems, 1, size); 
-    //     } 
-    //     return new PagingList<T>(data, totalItems, number, size);; 
-    // } 
+    public static PagingList<T> Create(List<T> data, int totalItems, int number, int size)
+    {
+        var page = new PagingList<T>(data, totalItems, number, size);
+        if (number > page.TotalPages) 
+        { 
+            return new PagingList<T>(data, totalItems, page.TotalPages, size); 
+        } 
+        if (number < 1) 
+        { 
+            return new PagingList<T>(data, totalItems, 1, size); 
+        } 
+        return new PagingList<T>(data, totalItems, number, size);
+    } 
 }
     

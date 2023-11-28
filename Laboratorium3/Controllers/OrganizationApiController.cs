@@ -10,32 +10,37 @@ namespace Laboratorium3.Controllers
 {
     [Route("api/organization")]
     [ApiController]
-    public class OrganizationAPIController : ControllerBase
+    public class OrganizationApiController : ControllerBase
     {
         private readonly AppDbContext _context;
         
-        public OrganizationAPIController(AppDbContext context)
+        public OrganizationApiController(AppDbContext context)
         {
             _context = context;
         }
         
-        [Route("filter")]
-        public IActionResult GetFilteredOrganizations(string q)
+        //[Route("filter")]
+        [HttpGet]
+        public IActionResult GetFilteredOrganizations(string? q)
         {
-            var result = _context.Organization
-                .Where(o => o.Name.StartsWith(q.ToLower()))
+            return Ok(
+                q is null ? _context.Organization
+                        .ToList()
+                        .Select(o => new{ o.Name, o.Id})
+                        .ToList()
+                    :
+                _context.Organization
+                .Where(o => o.Name.ToUpper().StartsWith(q.ToUpper()))
                 .Select(o => new { o.Name, o.Id })
-                .ToList();
-
-            return Ok(result);
-
+                .ToList());
         }
         [Route("{id}")]
+        [HttpGet]
         public IActionResult GetOrganizationById(int id)
         {
             var entity = _context.Organization.Find(id);
             if (entity is null) return NotFound();
-            else return Ok();
+            else return Ok(entity);
         }
     }
 }

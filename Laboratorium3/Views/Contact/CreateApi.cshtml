@@ -7,7 +7,7 @@
 }
 
 <h1>Add contact</h1>
-<form asp-controller="Contact" asp-action="Create" method="post">
+<form asp-controller="Contact" asp-action="CreateApi" method="post">
     <div class="mb-3">
         <label asp-for="Name">Name</label>
         <input class="form-control" asp-for="Name" />
@@ -25,6 +25,7 @@
     </div>
     <div class="mb-3">
         <label asp-for="OrganizationId"></label>
+        <input class="form-control" type="text" id="filter"/>
         <select class="form-control" id="OrganizationId"></select>
         <a asp-action="Create" asp-controller="Organization">Add new organization</a>
     </div>
@@ -48,14 +49,14 @@
             if (filter.value.lenght == 0) {
                 return;
             }
-            fetch(`/api/organization/filter?q=${filter.value}`)
+            fetch(`/api/organization?q=${filter.value}`)
                 .then(response => response.json())
                 .then(json => {
-                    select.innerHTML = '';
+                    select.innerHTML = "";
                     for (let item of json) {
-                        let option = document.createElement('option');
+                        const option = document.createElement('option');
                         option.setAttribute('value', item.id);
-                        option.innerText = item.title;
+                        option.innerText = item.name;
                         select.appendChild(option);
                     }
                 })
