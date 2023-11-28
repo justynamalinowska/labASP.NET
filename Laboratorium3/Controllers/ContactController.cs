@@ -47,10 +47,25 @@ namespace Laboratorium3.Controllers
                 return RedirectToAction("Index");
             }
             model.OrganizationList = CreateSelectItem();
-                return View(model);
-            
+            return View(model);
         }
 
+        public IActionResult CreateApi()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateApi(Contact model)
+        {
+            if (ModelState.IsValid)
+            {
+                _contactService.Add(model);
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+        
         [HttpGet]
         public IActionResult Update(int id)
         {
@@ -89,7 +104,6 @@ namespace Laboratorium3.Controllers
         {
             return View(_contactService.FindById(id));
         }
-
     }
 }
 

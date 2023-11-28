@@ -180,6 +180,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdC9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium3/Views/Contact/CreateApi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdC9DcmVhdGVBcGkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium3/Views/Contact/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdC9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -11,6 +11,7 @@ namespace Laboratorium3.Models
         List<Contact> FindAll();
         Contact? FindById(int id);
         List<OrganizationEntity> FindAllOrganizations();
+        List<Contact> FindPage(int page, int size);
     }
 }
 

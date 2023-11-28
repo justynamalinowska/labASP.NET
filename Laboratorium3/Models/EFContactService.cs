@@ -42,6 +42,18 @@ namespace Laboratorium3.Models
            return _context.Organization.ToList();
         }
 
+        public List<Contact> FindPage(int page, int size)
+        {
+            throw new NotImplementedException();
+            // int totalCount = _context.Contacts.Count(); 
+            // List<ContactEntity> data = _context.Contacts
+            //     .OrderBy(c => c.Name)
+            //     .Skip((page - 1) * size)
+            //     .Take(size)
+            //     .ToList();
+            // return PagingList<Contact>.Create(data, totalCount, page, size);
+        }
+
         public Contact? FindById(int id)
         {
             ContactEntity? find = _context.Contacts.Find(id);
