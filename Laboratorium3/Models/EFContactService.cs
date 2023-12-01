@@ -44,15 +44,15 @@ namespace Laboratorium3.Models
 
         public PagingList<Contact> FindPage(int page, int size)
         {
-            int totalCount = _context.Contacts.Count();
-            var p = PagingList<Contact>.Create(null, totalCount, page, size);
+            var pagingList = PagingList<Contact>.Create(null, _context.Contacts.Count(), page, size);
             var data = _context.Contacts
-                .OrderBy(c => c.Name)
-                .Skip((p.Number - 1) * p.Size)
-                .Take(p.Size)
+                .OrderBy(contact => contact.Name)
+                .Skip((pagingList.Number - 1) * pagingList.Size)
+                .Take(pagingList.Size)
                 .Select(ContactMapper.FromEntity)
                 .ToList();
-            return p;
+            pagingList.Data = data;
+            return pagingList;
         }
 
         public Contact? FindById(int id)
