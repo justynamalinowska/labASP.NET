@@ -6,11 +6,11 @@
 @{
 }
 
-<h1>Add contactAPI</h1>
+<h1>Add contact</h1>
 <form asp-controller="Contact" asp-action="CreateApi" method="post">
     <div class="mb-3">
         <label asp-for="Name">Name</label>
-        <input class="form-control" asp-for="Name" name="Name" />
+        <input class="form-control" asp-for="Name" />
         <span class="text-danger" asp-validation-for="Name"></span>
     </div>
     <div class="mb-3">
@@ -27,7 +27,7 @@
         <label asp-for="OrganizationId"></label>
         <input class="form-control" type="text" id="filter"/>
         <select class="form-control" id="OrganizationId"></select>
-        <a href="/Organization/Create">Add new organization</a>
+        <a asp-action="Create" asp-controller="Organization">Add new organization</a>
     </div>
     <div>
         <label asp-for="Priority"></label>
@@ -43,10 +43,10 @@
 
 @section Scripts{
     <script>
-        let select = document.getElementById("#OrganizationId");
-        let filter = document.getElementById("#filter");
+        let select = document.getElementById("OrganizationId");
+        let filter = document.getElementById("filter");
         filter.onchange = function () {
-            if (filter.value.length == 0) {
+            if (filter.value.lenght == 0) {
                 return;
             }
             fetch(`/api/organization?q=${filter.value}`)
