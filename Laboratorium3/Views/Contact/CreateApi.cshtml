@@ -24,9 +24,9 @@
         <span class="text-danger" asp-validation-for="Phone"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="OrganizationId"></label>
-        <input class="form-control" type="text" id="filter"/>
-        <select class="form-control" id="OrganizationId"></select>
+        <label for="filter">Organization filter</label>
+        <input class="form-control" type="text" name="filter" id="filter"/>
+        <select class="form-control" asp-for="OrganizationId" id="OrganizationId"></select>
         <a asp-action="Create" asp-controller="Organization">Add new organization</a>
     </div>
     <div>
@@ -45,7 +45,7 @@
     <script>
         let select = document.getElementById("OrganizationId");
         let filter = document.getElementById("filter");
-        filter.onchange = function () {
+        filter.onchange = function (e) {
             if (filter.value.lenght == 0) {
                 return;
             }
@@ -60,9 +60,9 @@
                         select.appendChild(option);
                     }
                 })
-                // .catch(e => {
-                //     console.log('cant get data from api', e);
-                // });
+                .catch(e => {
+                    console.log('cant get data from api', e);
+                });
         };
     </script>
 }

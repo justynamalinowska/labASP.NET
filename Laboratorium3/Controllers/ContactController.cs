@@ -62,14 +62,15 @@ namespace Laboratorium3.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult CreateApi(Contact model)
         {
             if (ModelState.IsValid)
             {
                 _contactService.Add(model);
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
-            return View(model);
+            return View();
         }
         
         [HttpGet]

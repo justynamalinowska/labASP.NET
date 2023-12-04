@@ -42,5 +42,7 @@ namespace Laboratorium3.Controllers
             if (entity is null) return NotFound();
             else return Ok(entity);
         }
+        
+        
     }
 }
