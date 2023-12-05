@@ -1,4 +1,5 @@
-﻿using Laboratorium3.Models;
+﻿using System.Reflection.Metadata.Ecma335;
+using Laboratorium3.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -109,7 +110,12 @@ namespace Laboratorium3.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            return View(_contactService.FindById(id));
+            var model = _contactService.FindById(id);
+            if (model is null)
+            {
+                return NotFound();
+            }
+            return View(model);
         }
     }
 }

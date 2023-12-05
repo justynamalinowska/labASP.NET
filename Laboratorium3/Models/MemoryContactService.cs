@@ -33,7 +33,12 @@ namespace Laboratorium3.Models
         }
         public Contact? FindById(int id)
         {
-            return _items[id];
+            if(_items.ContainsKey(id))
+            {
+                return _items[id];
+            }
+
+            return null;
         }
         public void Update(Contact item)
         {
