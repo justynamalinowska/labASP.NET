@@ -37,6 +37,11 @@ namespace Laboratorium3_Product.Models
         {
             throw new NotImplementedException();
         }
+
+        public PagingList<Product> FindPage(int page, int size)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

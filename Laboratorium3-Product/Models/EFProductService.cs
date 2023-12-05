@@ -53,6 +53,19 @@ namespace Laboratorium3_Product.Models
         {
             return _context.Producent.ToList();
         }
+        
+        public PagingList<Product> FindPage(int page, int size)
+        {
+            int totalCount = _context.Products.Count();
+            var p = PagingList<Product>.Create(null, totalCount, page, size);
+            var data = _context.Products
+                .OrderBy(c => c.ProductName)
+                .Skip((p.Number - 1) * p.Size)
+                .Take(p.Size)
+                .Select(ProductMapper.FromEntity)
+                .ToList();
+            return p;
+        }
     }
 }
 

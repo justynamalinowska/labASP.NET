@@ -12,6 +12,7 @@ namespace Laboratorium3_Product.Models
         List<Product> FindAll();
         Product? FindById(int id);
         List<ProducentEntity> FindAllProducents();
+        PagingList<Product> FindPage(int page, int size);
     }
 }
 

@@ -45,6 +45,12 @@ namespace Laboratorium3_Product.Controllers
             return items;
         }
 
+        public IActionResult PagedIndex(int page = 1, int size = 2 )
+        {
+            ViewBag.PageSize = size;
+            return View(_productService.FindPage(page, size));
+        }
+        
         [HttpPost]
         public IActionResult Create(Product model)
         {
@@ -57,6 +63,23 @@ namespace Laboratorium3_Product.Controllers
             {
                 return View(); 
             }
+        }
+        
+        public IActionResult CreateApi()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateApi(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                _productService.Add(product);
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
         }
 
         [HttpGet]
