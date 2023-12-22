@@ -27,7 +27,11 @@ namespace Laboratorium3_Product.Models
         }
         public Product? FindById(int id)
         {
-            return _items[id];
+            if(_items.ContainsKey(id))
+            {
+                return _items[id];
+            }
+            return null;
         }
         public void Update(Product item)
         {

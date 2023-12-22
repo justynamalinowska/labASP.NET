@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Laboratorium3_Product.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Reflection.Metadata.Ecma335;
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -118,7 +119,12 @@ namespace Laboratorium3_Product.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            return View(_productService.FindById(id));
+            var model = _productService.FindById(id);
+            if (model is null)
+            {
+                return NotFound();
+            }
+            return View(model);
         }
     }
 }

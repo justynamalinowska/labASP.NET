@@ -48,7 +48,7 @@ namespace Data
 
             var admin = new IdentityUser()
                 { Id = Guid.NewGuid().ToString(), UserName = "justyna", NormalizedUserName = "JUSTYNA", Email = "justyna.malinowska2001@op.pl", NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL", EmailConfirmed = true };
-            admin.PasswordHash = passwordHasher.HashPassword(admin, "123ABC!@#");
+            admin.PasswordHash = passwordHasher.HashPassword(admin, "`");
             modelBuilder.Entity<IdentityUser>()
                 .HasData(admin);
             
