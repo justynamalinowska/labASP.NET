@@ -8,6 +8,7 @@ namespace Laboratorium3_Product.Models
     public class MemoryProductService : IProductService
     {
         private Dictionary<int, Product> _items = new Dictionary<int, Product>();
+        private List<ProducentEntity> _producents = new List<ProducentEntity>();
 
         public int Add(Product item)
         {
@@ -39,12 +40,15 @@ namespace Laboratorium3_Product.Models
         }
         public List<ProducentEntity> FindAllProducents()
         {
-            throw new NotImplementedException();
+            return _producents;
         }
 
         public PagingList<Product> FindPage(int page, int size)
         {
-            throw new NotImplementedException();
+            var allProducts = FindAll();
+            int startIndex = (page - 1) * size;
+            var productsOnPage = allProducts.Skip(startIndex).Take(size).ToList();
+            return PagingList<Product>.Create(productsOnPage, allProducts.Count, page, size);
         }
     }
 }
