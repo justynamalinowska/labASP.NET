@@ -86,7 +86,10 @@ namespace Laboratorium3_Product.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            return View(_productService.FindById(id));
+            var product = _productService.FindById(id);
+            if (product is null) return NotFound();
+            product.ProducentList = CreateSelectItem();
+            return View(product);
         }
 
         [HttpPost]
@@ -94,13 +97,18 @@ namespace Laboratorium3_Product.Controllers
         {
             if (ModelState.IsValid)
             {
-                _productService.Update(model);
-                return RedirectToAction("Index");
+                if (model.ProducentId != 0)
+                {
+                    _productService.Update(model);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError(nameof(model.ProducentId), "Proszę wybrać producenta.");
+                }
             }
-            else
-            {
-                return View();
-            }
+            model.ProducentList = CreateSelectItem();
+            return View(model);
         }
 
         [HttpGet]
@@ -128,4 +136,3 @@ namespace Laboratorium3_Product.Controllers
         }
     }
 }
-
