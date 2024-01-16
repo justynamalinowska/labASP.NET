@@ -4,9 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create new Producent</h1>
 
-<h4>Producent</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -21,6 +20,11 @@
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="CountryId"></label>
+                <select class="form-control" asp-for="CountryId" asp-items="@Model?.CountryList"></select>
+                <a asp-action="Create" asp-controller="Country">Add new country</a>
             </div>
             <button class="btn btn-primary" type="submit">Create</button>
         </form>

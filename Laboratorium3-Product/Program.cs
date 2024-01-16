@@ -21,6 +21,7 @@ namespace Laboratorium3_Product
             builder.Services.AddSession();
             builder.Services.AddTransient<IProductService, EFProductService>();
             builder.Services.AddTransient<IProducentService, EFProducentService>();
+            builder.Services.AddTransient<ICountryService, EFCountryService>();
             builder.Services.AddDbContext<AppDbContext>();
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()

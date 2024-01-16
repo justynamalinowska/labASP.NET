@@ -12,4 +12,5 @@ public interface IProducentService
     void Update(Producent producent);
     List<Producent> FindAll();
     Producent? FindById(int id);
+    List<CountryEntity> FindAllCountries();
 }

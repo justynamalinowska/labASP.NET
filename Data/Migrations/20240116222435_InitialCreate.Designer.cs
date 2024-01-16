@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231204185210_InitialCreate")]
+    [Migration("20240116222435_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -77,6 +77,38 @@ namespace Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Data.Entities.CountryEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Countries");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Poland"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Sweden"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Finland"
+                        });
+                });
+
             modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -116,6 +148,9 @@ namespace Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("CountryId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -126,18 +161,22 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CountryId");
+
                     b.ToTable("Producents");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
+                            CountryId = 2,
                             Description = "Szwedzka sieć sklepów meblowych.",
                             Name = "IKEA"
                         },
                         new
                         {
                             Id = 2,
+                            CountryId = 3,
                             Description = "Sieć sklepów dekoracyjnych.",
                             Name = "JYSK"
                         });
@@ -181,7 +220,7 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             DateOfProduction = new DateTime(2023, 11, 8, 15, 30, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Lampa sufitowa/ścienna LED, smart bezprzewodowy przyciemniany/ciepły biały biały, 37 cm",
+                            Description = "Lampa sufitowa/ścienna LED",
                             Price = 99m,
                             ProducentId = 1,
                             ProductName = "Lamp",
@@ -217,15 +256,15 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "95b153a6-3f7a-45b9-a983-d123dd2b9e8c",
-                            ConcurrencyStamp = "95b153a6-3f7a-45b9-a983-d123dd2b9e8c",
+                            Id = "d781a77b-32a5-4f05-9a89-8c914eb883ac",
+                            ConcurrencyStamp = "d781a77b-32a5-4f05-9a89-8c914eb883ac",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "82331590-520e-4aac-b2ab-911528250221",
-                            ConcurrencyStamp = "82331590-520e-4aac-b2ab-911528250221",
+                            Id = "99bca169-f772-4f05-9416-31cf375da7bd",
+                            ConcurrencyStamp = "99bca169-f772-4f05-9416-31cf375da7bd",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -320,33 +359,33 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c3590638-fd28-4e39-81e8-bc7d8956b68e",
+                            Id = "175785c5-22eb-4c81-a975-2362ebc17ab3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e2726593-a634-4bab-922f-113a00a582e4",
+                            ConcurrencyStamp = "2022d920-d0b2-462b-b29a-ffdac8481986",
                             Email = "justyna.malinowska2001@op.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL",
                             NormalizedUserName = "JUSTYNA",
-                            PasswordHash = "AQAAAAEAACcQAAAAENEdBK5mxDJhP9gGw76H4wipH8iWtHO20bDOgZ+mRvt+MZjXBHNf9qUvVo+F0Mp6iA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKW2p5uSo2H7m72ba957kt+pVfy39mLoz+dctyFi41VpS95kzYwTzCbS+MLCjqpMdg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8a0a26d3-fa49-4b34-a978-cac6170441c7",
+                            SecurityStamp = "9d2f03fe-700d-4f21-9e6d-ced10564f8f7",
                             TwoFactorEnabled = false,
                             UserName = "justyna"
                         },
                         new
                         {
-                            Id = "ec06e7e8-9263-4e64-9a68-bb0915789106",
+                            Id = "327d0dee-d2b8-46e0-af1f-7ff885de6a93",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "32930d29-a075-4f1d-a4a5-86f80e2aed84",
+                            ConcurrencyStamp = "2e82a122-2fd1-42c2-8deb-79212c3f6944",
                             Email = "marek@wsei.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MAREK@WSEI.PL",
                             NormalizedUserName = "MAREK",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAXKG99k09XwM91PKOdu9p9Cg0/4kiynIl5Ergr84RAAcW9tgD8dMaFY4PkYdXUOiw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAKEqgbiFLTxGFfxpfDLz4FFPO/7HsYK7lxMZKPiUyIuL3ohpkCIcJWwYluaFJifBg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a9e339e6-84c9-41e5-b4fe-80a194007289",
+                            SecurityStamp = "0889a015-97bf-41fc-ae80-e114988eadc7",
                             TwoFactorEnabled = false,
                             UserName = "marek"
                         });
@@ -414,13 +453,13 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "ec06e7e8-9263-4e64-9a68-bb0915789106",
-                            RoleId = "95b153a6-3f7a-45b9-a983-d123dd2b9e8c"
+                            UserId = "327d0dee-d2b8-46e0-af1f-7ff885de6a93",
+                            RoleId = "d781a77b-32a5-4f05-9a89-8c914eb883ac"
                         },
                         new
                         {
-                            UserId = "c3590638-fd28-4e39-81e8-bc7d8956b68e",
-                            RoleId = "95b153a6-3f7a-45b9-a983-d123dd2b9e8c"
+                            UserId = "175785c5-22eb-4c81-a975-2362ebc17ab3",
+                            RoleId = "d781a77b-32a5-4f05-9a89-8c914eb883ac"
                         });
                 });
 
@@ -500,6 +539,12 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.ProducentEntity", b =>
                 {
+                    b.HasOne("Data.Entities.CountryEntity", "Country")
+                        .WithMany("Producents")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.OwnsOne("Data.Models.Location", "Location", b1 =>
                         {
                             b1.Property<int>("ProducentEntityId")
@@ -540,6 +585,8 @@ namespace Data.Migrations
                                     Street = "Siewna 5"
                                 });
                         });
+
+                    b.Navigation("Country");
 
                     b.Navigation("Location");
                 });
@@ -602,6 +649,11 @@ namespace Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Data.Entities.CountryEntity", b =>
+                {
+                    b.Navigation("Producents");
                 });
 
             modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>

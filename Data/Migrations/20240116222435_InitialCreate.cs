@@ -53,6 +53,19 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Countries",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Countries", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Organizations",
                 columns: table => new
                 {
@@ -67,23 +80,6 @@ namespace Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Organizations", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Producents",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: false),
-                    Location_City = table.Column<string>(type: "TEXT", nullable: true),
-                    Location_Street = table.Column<string>(type: "TEXT", nullable: true),
-                    Location_PostalCode = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Producents", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -193,6 +189,30 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Producents",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: false),
+                    CountryId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Location_City = table.Column<string>(type: "TEXT", nullable: true),
+                    Location_Street = table.Column<string>(type: "TEXT", nullable: true),
+                    Location_PostalCode = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Producents", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Producents_Countries_CountryId",
+                        column: x => x.CountryId,
+                        principalTable: "Countries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "contacts",
                 columns: table => new
                 {
@@ -243,8 +263,8 @@ namespace Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "82331590-520e-4aac-b2ab-911528250221", "82331590-520e-4aac-b2ab-911528250221", "user", "USER" },
-                    { "95b153a6-3f7a-45b9-a983-d123dd2b9e8c", "95b153a6-3f7a-45b9-a983-d123dd2b9e8c", "admin", "ADMIN" }
+                    { "99bca169-f772-4f05-9416-31cf375da7bd", "99bca169-f772-4f05-9416-31cf375da7bd", "user", "USER" },
+                    { "d781a77b-32a5-4f05-9a89-8c914eb883ac", "d781a77b-32a5-4f05-9a89-8c914eb883ac", "admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -252,8 +272,18 @@ namespace Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "c3590638-fd28-4e39-81e8-bc7d8956b68e", 0, "e2726593-a634-4bab-922f-113a00a582e4", "justyna.malinowska2001@op.pl", true, false, null, "JUSTYNA.MALINOWSKA2001@OP.PL", "JUSTYNA", "AQAAAAEAACcQAAAAENEdBK5mxDJhP9gGw76H4wipH8iWtHO20bDOgZ+mRvt+MZjXBHNf9qUvVo+F0Mp6iA==", null, false, "8a0a26d3-fa49-4b34-a978-cac6170441c7", false, "justyna" },
-                    { "ec06e7e8-9263-4e64-9a68-bb0915789106", 0, "32930d29-a075-4f1d-a4a5-86f80e2aed84", "marek@wsei.pl", true, false, null, "MAREK@WSEI.PL", "MAREK", "AQAAAAEAACcQAAAAEAXKG99k09XwM91PKOdu9p9Cg0/4kiynIl5Ergr84RAAcW9tgD8dMaFY4PkYdXUOiw==", null, false, "a9e339e6-84c9-41e5-b4fe-80a194007289", false, "marek" }
+                    { "175785c5-22eb-4c81-a975-2362ebc17ab3", 0, "2022d920-d0b2-462b-b29a-ffdac8481986", "justyna.malinowska2001@op.pl", true, false, null, "JUSTYNA.MALINOWSKA2001@OP.PL", "JUSTYNA", "AQAAAAEAACcQAAAAEKW2p5uSo2H7m72ba957kt+pVfy39mLoz+dctyFi41VpS95kzYwTzCbS+MLCjqpMdg==", null, false, "9d2f03fe-700d-4f21-9e6d-ced10564f8f7", false, "justyna" },
+                    { "327d0dee-d2b8-46e0-af1f-7ff885de6a93", 0, "2e82a122-2fd1-42c2-8deb-79212c3f6944", "marek@wsei.pl", true, false, null, "MAREK@WSEI.PL", "MAREK", "AQAAAAEAACcQAAAAEAKEqgbiFLTxGFfxpfDLz4FFPO/7HsYK7lxMZKPiUyIuL3ohpkCIcJWwYluaFJifBg==", null, false, "0889a015-97bf-41fc-ae80-e114988eadc7", false, "marek" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Countries",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Poland" },
+                    { 2, "Sweden" },
+                    { 3, "Finland" }
                 });
 
             migrationBuilder.InsertData(
@@ -266,27 +296,22 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Producents",
-                columns: new[] { "Id", "Description", "Name", "Location_City", "Location_PostalCode", "Location_Street" },
-                values: new object[,]
-                {
-                    { 1, "Szwedzka sieć sklepów meblowych.", "IKEA", "Warszawa", "39-020", "Lipowa 12" },
-                    { 2, "Sieć sklepów dekoracyjnych.", "JYSK", "Katowice", "23-350", "Siewna 5" }
-                });
-
-            migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "95b153a6-3f7a-45b9-a983-d123dd2b9e8c", "c3590638-fd28-4e39-81e8-bc7d8956b68e" },
-                    { "95b153a6-3f7a-45b9-a983-d123dd2b9e8c", "ec06e7e8-9263-4e64-9a68-bb0915789106" }
+                    { "d781a77b-32a5-4f05-9a89-8c914eb883ac", "175785c5-22eb-4c81-a975-2362ebc17ab3" },
+                    { "d781a77b-32a5-4f05-9a89-8c914eb883ac", "327d0dee-d2b8-46e0-af1f-7ff885de6a93" }
                 });
 
             migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "DateOfProduction", "Description", "Price", "ProducentId", "ProductName", "Quality" },
-                values: new object[] { 1, new DateTime(2023, 11, 8, 15, 30, 0, 0, DateTimeKind.Unspecified), "Lampa sufitowa/ścienna LED, smart bezprzewodowy przyciemniany/ciepły biały biały, 37 cm", 99m, 1, "Lamp", 2 });
+                table: "Producents",
+                columns: new[] { "Id", "CountryId", "Description", "Name", "Location_City", "Location_PostalCode", "Location_Street" },
+                values: new object[,]
+                {
+                    { 1, 2, "Szwedzka sieć sklepów meblowych.", "IKEA", "Warszawa", "39-020", "Lipowa 12" },
+                    { 2, 3, "Sieć sklepów dekoracyjnych.", "JYSK", "Katowice", "23-350", "Siewna 5" }
+                });
 
             migrationBuilder.InsertData(
                 table: "contacts",
@@ -296,6 +321,11 @@ namespace Data.Migrations
                     { 1, new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "adam@wsei.edu.pl", "Adam", 1, "127813268163", 1 },
                     { 2, new DateTime(1999, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "ewa@wsei.edu.pl", "Ewa", 2, "293443823478", 2 }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "DateOfProduction", "Description", "Price", "ProducentId", "ProductName", "Quality" },
+                values: new object[] { 1, new DateTime(2023, 11, 8, 15, 30, 0, 0, DateTimeKind.Unspecified), "Lampa sufitowa/ścienna LED", 99m, 1, "Lamp", 2 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -340,6 +370,11 @@ namespace Data.Migrations
                 column: "OrganizationId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Producents_CountryId",
+                table: "Producents",
+                column: "CountryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_ProducentId",
                 table: "Products",
                 column: "ProducentId");
@@ -380,6 +415,9 @@ namespace Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Producents");
+
+            migrationBuilder.DropTable(
+                name: "Countries");
         }
     }
 }

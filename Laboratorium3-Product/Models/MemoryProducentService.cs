@@ -7,6 +7,7 @@ namespace Laboratorium3_Product.Models;
 public class MemoryProducentService : IProducentService
 {
     private Dictionary<int, Producent> _items = new Dictionary<int, Producent>();
+    private List<CountryEntity> _countries = new List<CountryEntity>();
 
     public int Add(Producent item)
     {
@@ -31,5 +32,10 @@ public class MemoryProducentService : IProducentService
     public void Update(Producent item)
     {
         _items[item.Id] = item;
+    }
+    
+    public List<CountryEntity> FindAllCountries()
+    {
+        return _countries;
     }
 }

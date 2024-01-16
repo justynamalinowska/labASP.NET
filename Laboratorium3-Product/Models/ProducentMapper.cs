@@ -17,7 +17,8 @@ public static class ProducentMapper
             Id = model.Id,
             Name = model.Name,
             Description = model.Description,
-            Location = location
+            Location = location,
+            CountryId = model.CountryId
         };
     }
     public static Producent FromEntity(ProducentEntity model)
@@ -30,7 +31,8 @@ public static class ProducentMapper
             Description = model.Description,
             City = model.Location?.City,
             Street = model.Location?.Street,
-            PostalCode = model.Location?.PostalCode
+            PostalCode = model.Location?.PostalCode,
+            CountryId = model.CountryId
         };
     }
 }

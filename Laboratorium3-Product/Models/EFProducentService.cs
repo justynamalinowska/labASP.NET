@@ -45,6 +45,11 @@ public class EFProducentService : IProducentService
     public Producent? FindById(int id)
     {
         ProducentEntity? find = _context.Producent.Find(id);
-        return find != null ? ProducentMapper.FromEntity(find) : null;
+        return find is not null ? ProducentMapper.FromEntity(find) : null;
+    }
+    
+    public List<CountryEntity> FindAllCountries()
+    {
+        return _context.Countries.ToList();
     }
 }

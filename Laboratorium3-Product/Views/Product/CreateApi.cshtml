@@ -30,11 +30,10 @@
         <span class="text-danger" asp-validation-for="Description"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Quality"></label>
-        <div>
+            <label asp-for="Quality"></label>
+            <select class="form-control" asp-for="Quality" asp-items="@Html.GetEnumSelectList<Quality>()"></select>
             <span asp-validation-for="Quality" class="text-danger"></span>
         </div>
-    </div>
     <div class="mb-3">
         <label for="filter">Producent filter</label>
         <input class="form-control" type="text" name="filter" id="filter"/>

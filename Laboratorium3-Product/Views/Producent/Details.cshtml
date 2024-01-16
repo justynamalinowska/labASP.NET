@@ -1,29 +1,14 @@
 ﻿@model Producent?
-
 @{
-    ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Details for product: @Model.Id </h1>
 
-<div>
-    <h4>Producent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-    </dl>
-</div>
+<ul>
+    <li>@Html.DisplayNameFor(model => model.Name): @Model.Name</li>
+    <li>@Html.DisplayNameFor(model => model.Description): @Model.Description</li>
+    <li>@Html.DisplayNameFor(model => model.Country): @Model.Country</li>
+</ul>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>

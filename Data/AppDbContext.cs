@@ -19,13 +19,14 @@ namespace Data
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "database2.db");
+            DbPath = System.IO.Path.Join(path, "database5.db");
         }
 
         public DbSet<ContactEntity> Contacts { get; set; }
         public DbSet<ProductEntity> Products { get; set; }
         public DbSet<OrganizationEntity> Organization { get; set; }
         public DbSet<ProducentEntity> Producent { get; set; }
+        public DbSet<CountryEntity> Countries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)=>
             options.UseSqlite($"Data Source={DbPath}");
@@ -48,7 +49,7 @@ namespace Data
 
             var admin = new IdentityUser()
                 { Id = Guid.NewGuid().ToString(), UserName = "justyna", NormalizedUserName = "JUSTYNA", Email = "justyna.malinowska2001@op.pl", NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL", EmailConfirmed = true };
-            admin.PasswordHash = passwordHasher.HashPassword(admin, "`");
+            admin.PasswordHash = passwordHasher.HashPassword(admin, "123ABC!@#");
             modelBuilder.Entity<IdentityUser>()
                 .HasData(admin);
             
@@ -84,26 +85,41 @@ namespace Data
                 new ContactEntity() { ContactId = 1, Name = "Adam", Email = "adam@wsei.edu.pl", Phone = "127813268163", BirthDate = new DateTime(2000, 10, 10), Priority=1, OrganizationId= 1 },
                 new ContactEntity() { ContactId = 2, Name = "Ewa", Email = "ewa@wsei.edu.pl", Phone = "293443823478", BirthDate = new DateTime(1999, 8, 10), Priority = 2, OrganizationId=2 }
             );
+            
+            modelBuilder.Entity<ProducentEntity>()
+                .HasOne(p => p.Country)
+                .WithMany(c => c.Producents)
+                .HasForeignKey(p => p.CountryId);
 
             modelBuilder.Entity<ProductEntity>()
                 .HasOne(c => c.Producent)
                 .WithMany(o => o.Products)
                 .HasForeignKey(c => c.ProducentId);
             
+            modelBuilder.Entity<CountryEntity>()
+                .HasData(
+                    new CountryEntity(){ Id = 1, Name = "Poland" },
+                    new CountryEntity(){ Id = 2, Name = "Sweden" },
+                    new CountryEntity(){ Id = 3, Name = "Finland" }
+                );
+            
             modelBuilder.Entity<ProducentEntity>().HasData(
-                new ProducentEntity() { Id=1, Name="IKEA", Description="Szwedzka sieć sklepów meblowych.", },
-                new ProducentEntity() { Id=2, Name="JYSK", Description="Sieć sklepów dekoracyjnych."}
+                new ProducentEntity() { Id=1, Name="IKEA", Description="Szwedzka sieć sklepów meblowych.", CountryId = 2},
+                new ProducentEntity() { Id=2, Name="JYSK", Description="Sieć sklepów dekoracyjnych.", CountryId = 3}
             );
             
             modelBuilder.Entity<ProducentEntity>()
                 .OwnsOne(e => e.Location)
                 .HasData(
                     new { ProducentEntityId = 1, City = "Warszawa", Street = "Lipowa 12", PostalCode = "39-020" },
-                    new { ProducentEntityId = 2, City = "Katowice", Street = "Siewna 5", PostalCode = "23-350" }
-                );
+                    new { ProducentEntityId = 2, City = "Katowice", Street = "Siewna 5", PostalCode = "23-350" });
 
             modelBuilder.Entity<ProductEntity>().HasData(
-                new ProductEntity() { Id = 1, ProductName="Lamp", Price=99, DateOfProduction= new DateTime(2023, 11, 8, 15, 30, 0), Description= "Lampa sufitowa/ścienna LED, smart bezprzewodowy przyciemniany/ciepły biały biały, 37 cm", Quality=2, ProducentId = 1 });
+                new ProductEntity() { Id = 1, ProductName="Lamp", Price=99, DateOfProduction= new DateTime(2023, 11, 8, 15, 30, 0), Description= "Lampa sufitowa/ścienna LED", Quality=2, ProducentId = 1 });
+
+           
+            
+            
         }
     }
 }
