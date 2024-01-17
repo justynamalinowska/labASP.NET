@@ -5,13 +5,16 @@
 @{
 }
 
-<h1>Details for product: @Model.Id </h1>
+<h1>Details for product: @Model.ProductName </h1>
 
-<ul>
-    <li>@Html.DisplayNameFor(model => model.ProductName): @Model.ProductName</li>
-    <li>@Html.DisplayNameFor(model => model.Price): @Model.Price</li>
-    <li>@Html.DisplayNameFor(model => model.DateOfProduction): @Model.DateOfProduction</li>
-    <li>@Html.DisplayNameFor(model => model.Description): @Model.Description</li>
-</ul>
-
-<a asp-action="Index" class="btn btn-primary">Back</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ProductName): @Model.ProductName</th>
+            <th>@Html.DisplayNameFor(model => model.Price): @Model.Price</th>
+            <th>@Html.DisplayNameFor(model => model.DateOfProduction): @Model.DateOfProduction</th>
+            <th>@Html.DisplayNameFor(model => model.Description): @Model.Description</th>
+        </tr>
+    </thead>
+</table>
+            <a asp-action="Index" class="btn btn-primary">Back</a>

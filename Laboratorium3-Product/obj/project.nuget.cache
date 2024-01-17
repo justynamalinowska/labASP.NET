@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vUMT/apgyWngQP59f8e0YE3mbdL2b9QvG1DXdtSn8/PFYznQ9vAyFso2Hzpfd/h/EPmILR7VOWjBm+n5MyW9gA==",
+  "dgSpecHash": "DUOLgp/tEp8syYzn9c9sRtveFNFmgdBIWcjMJtSe80Q+NGM+cYWMO9NE0pqx2b2lFgUM4bF8Z6TOCfgIFHGhhw==",
   "success": true,
-  "projectFilePath": "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium3-Product/Laboratorium3-Product.csproj",
+  "projectFilePath": "/Users/justynamalinowska/RiderProjects/Laboratorium3-Product/Laboratorium3-Product.csproj",
   "expectedPackageFiles": [
     "/Users/justynamalinowska/.nuget/packages/humanizer/2.14.1/humanizer.2.14.1.nupkg.sha512",
     "/Users/justynamalinowska/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",

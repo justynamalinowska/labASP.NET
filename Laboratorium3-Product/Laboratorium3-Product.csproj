@@ -32,11 +32,8 @@
 
   <ItemGroup>
     <AdditionalFiles Include="Views\Country\Create.cshtml" />
-    <AdditionalFiles Include="Views\Country\CreateApi.cshtml" />
     <AdditionalFiles Include="Views\Country\Delete.cshtml" />
-    <AdditionalFiles Include="Views\Country\Details.cshtml" />
     <AdditionalFiles Include="Views\Country\Index.cshtml" />
-    <AdditionalFiles Include="Views\Country\PagedIndex.cshtml" />
     <AdditionalFiles Include="Views\Country\Update.cshtml" />
   </ItemGroup>
 

@@ -11583,11 +11583,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium3/Laboratorium3.csproj",
+      "projectUniqueName": "/Users/justynamalinowska/RiderProjects/Laboratorium3/Laboratorium3.csproj",
       "projectName": "Laboratorium3",
-      "projectPath": "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium3/Laboratorium3.csproj",
+      "projectPath": "/Users/justynamalinowska/RiderProjects/Laboratorium3/Laboratorium3.csproj",
       "packagesPath": "/Users/justynamalinowska/.nuget/packages/",
-      "outputPath": "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Laboratorium3/obj/",
+      "outputPath": "/Users/justynamalinowska/RiderProjects/Laboratorium3/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/justynamalinowska/.nuget/NuGet/NuGet.Config"
@@ -11603,8 +11603,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Data/Data.csproj": {
-              "projectPath": "/Users/justynamalinowska/Documents/GitHub/labASP.NET/Data/Data.csproj"
+            "/Users/justynamalinowska/RiderProjects/Data/Data.csproj": {
+              "projectPath": "/Users/justynamalinowska/RiderProjects/Data/Data.csproj"
             }
           }
         }

@@ -47,3 +47,7 @@ button.accept-policy {
   line-height: 60px;
 }
 
+.navbar-nav flex-grow-1 {
+    text-align: center;
+}
+
