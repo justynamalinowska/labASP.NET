@@ -21,5 +21,6 @@ namespace Data.Entities
         public int Quality { get; set; }
         public ProducentEntity? Producent { get; set; }
         public int? ProducentId { get; set; }
+        public bool IsFavourite { get; set; }
     }
 }

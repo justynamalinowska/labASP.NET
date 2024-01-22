@@ -115,11 +115,11 @@ namespace Data
                     new { ProducentEntityId = 2, City = "Katowice", Street = "Siewna 5", PostalCode = "23-350" });
 
             modelBuilder.Entity<ProductEntity>().HasData(
-                new ProductEntity() { Id = 1, ProductName="Lamp", Price=99, DateOfProduction= new DateTime(2023, 11, 8, 15, 30, 0), Description= "Lampa sufitowa/ścienna LED", Quality=2, ProducentId = 1 });
+                new ProductEntity() { Id = 1, ProductName="Lamp", Price=99, DateOfProduction= new DateTime(2023, 11, 8, 15, 30, 0), Description= "Lampa sufitowa/ścienna LED", Quality=2, ProducentId = 1, IsFavourite = false },
+            new ProductEntity() { Id = 2, ProductName = "Table", Price = 199, DateOfProduction = new DateTime(2023, 11, 8, 15, 30, 0), Description = "ładny stół", Quality = 4, ProducentId = 2, IsFavourite = true });
 
-           
-            
-            
+
+
         }
     }
 }

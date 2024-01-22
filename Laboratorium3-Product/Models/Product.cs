@@ -27,6 +27,7 @@ namespace Laboratorium3_Product.Models
         public int ProducentId { get; set; }
         [ValidateNever]
         public List<SelectListItem> ProducentList { get; set; }
+        public bool IsFavourite { get; set; }
     }
 }
 

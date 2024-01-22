@@ -1,39 +1,92 @@
-﻿@model List<Product>
+﻿@model PagingList<Product>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
-
-    <h2>Products List</h2>
-    <a class="btn btn-primary" asp-controller="Product" asp-action="Create">Add product</a>
-    <a class="btn btn-primary" asp-controller="Product" asp-action="CreateApi">Add product API</a>
-<hr/>
-    @if (Model.Count > 0)
-    {
-        <table class="table">
+<h1>Product List</h1>
+<a class="btn btn-primary" asp-controller="Product" asp-action="Create">Add product</a>
+<a class="btn btn-primary" asp-controller="Product" asp-action="CreateApi">Add product API</a>
+<hr />
+@if (Model.Data.Count() > 0)
+{
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>@Html.DisplayNameFor(model => model.Data[0].ProductName)</th>
+            <th>@Html.DisplayNameFor(model => model.Data[0].Price)</th>
+            <th>@Html.DisplayNameFor(model => model.Data[0].DateOfProduction)</th>
+            <th>@Html.DisplayNameFor(model => model.Data[0].Description)</th>
+            <th>@Html.DisplayNameFor(model => model.Data[0].Quality)</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var item in Model.Data)
+        {
             <tr>
-                <th>@Html.DisplayNameFor(model => model[0].ProductName)</th>
-                <th>@Html.DisplayNameFor(model => model[0].Price)</th>
-                <th>@Html.DisplayNameFor(model => model[0].DateOfProduction)</th>
-                <th>@Html.DisplayNameFor(model => model[0].Description)</th>
-                <th>@Html.DisplayNameFor(model => model[0].Quality)</th>
-                <th>Actions</th>
+                <td>
+                    @if (item.IsFavourite)
+                    {
+                        <i class="fa-solid fa-heart pink"></i>
+                    }
+                    else
+                    {
+                        <i class="fa-regular fa-heart"></i>
+                    }
+                </td>
+                <td>@item.ProductName</td>
+                <td>@item.Price</td>
+                <td>@item.DateOfProduction</td>
+                <td>@item.Description</td>
+                <td>@item.Quality.GetDisplayName()</td>
+                <td>
+                    <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                    <a asp-controller="Product" asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-info">Update</a>
+                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
-            @foreach (var item in Model)
+        }
+    </table>
+    <nav aria-label="Books page navigation">
+        <ul class="pagination">
+            @if (Model.IsPrevious)
             {
-                <tr>
-                    <td>@item.ProductName</td>
-                    <td>@item.Price</td>
-                    <td>@item.DateOfProduction</td>
-                    <td>@item.Description</td>
-                    <td>@item.Quality.GetDisplayName()</td>
-                    <td>
-                        <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
-                        <a asp-controller="Product" asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-info">Update</a>
-                        <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
+                <li class="page-item">
+                    <a class="page-link"
+                       asp-controller="Product"
+                       asp-action="Index"
+                       asp-route-page="@(Model.Number - 1)"
+                       asp-route-page="@(Model.Size)">
+                        Previous
+                    </a>
+                </li>
             }
-        </table>
-    }
+            else
+            {
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+            }
+            <li class="page-item disabled">
+                <a class="page-link">@Model.Number</a>
+            </li>
+            @if (Model.IsNext)
+            {
+                <li class="page-item">
+                    <a class="page-link"
+                       asp-controller="Product"
+                       asp-action="Index"
+                       asp-route-page="@(Model.Number + 1)"
+                       asp-route-size="@(Model.Size)">
+                        Next
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <a class="page-link">Next</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

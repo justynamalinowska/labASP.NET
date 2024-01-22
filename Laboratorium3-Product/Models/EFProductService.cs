@@ -64,6 +64,7 @@ namespace Laboratorium3_Product.Models
                 .Take(p.Size)
                 .Select(ProductMapper.FromEntity)
                 .ToList();
+            p.Data = data;
             return p;
         }
     }

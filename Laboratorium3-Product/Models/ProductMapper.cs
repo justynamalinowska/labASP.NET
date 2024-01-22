@@ -13,7 +13,8 @@ namespace Laboratorium3_Product.Models
                 DateOfProduction = model.DateOfProduction,
                 Description = model.Description,
                 Quality = (int)model.Quality,
-                ProducentId = model.ProducentId
+                ProducentId = model.ProducentId,
+                IsFavourite = model.IsFavourite
             };
         }
         public static Product FromEntity(ProductEntity model)
@@ -26,7 +27,8 @@ namespace Laboratorium3_Product.Models
                 DateOfProduction = model.DateOfProduction,
                 Description = model.Description,
                 Quality = (Quality)model.Quality,
-                ProducentId = (int)model.ProducentId
+                ProducentId = (int)model.ProducentId,
+                IsFavourite = model.IsFavourite
             };
         }
     }

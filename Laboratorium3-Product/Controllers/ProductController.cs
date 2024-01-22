@@ -23,9 +23,11 @@ namespace Laboratorium3_Product.Controllers
             _productService = productService;
         }
 
-        public IActionResult Index()
+
+        public IActionResult Index(int page = 1, int size = 2)
         {
-            return View(_productService.FindAll());
+            ViewBag.PageSize = size;
+            return View(_productService.FindPage(page, size));
         }
 
         [HttpGet]
@@ -45,12 +47,6 @@ namespace Laboratorium3_Product.Controllers
             items.Add(new SelectListItem() { Text = "Unknown", Value = "" });
             return items;
         }
-
-        public IActionResult PagedIndex(int page = 1, int size = 2 )
-        {
-            ViewBag.PageSize = size;
-            return View(_productService.FindPage(page, size));
-        }
         
         [HttpPost]
         public IActionResult Create(Product model)
@@ -62,7 +58,7 @@ namespace Laboratorium3_Product.Controllers
             }
             else
             {
-                return View(); 
+                return View(model); 
             }
         }
         
@@ -80,7 +76,7 @@ namespace Laboratorium3_Product.Controllers
                 _productService.Add(product);
                 return RedirectToAction(nameof(Index));
             }
-            return View();
+            return View(product);
         }
 
         [HttpGet]

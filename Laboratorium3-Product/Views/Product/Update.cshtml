@@ -24,7 +24,6 @@
         <input class="form-control" asp-for="DateOfProduction" />
         <span class="text-danger" asp-validation-for="DateOfProduction"></span>
     </div>
-
     <div class="mb-3">
         <label asp-for="Description"></label>
         <input class="form-control" asp-for="Description" />
@@ -36,10 +35,16 @@
         <span asp-validation-for="Quality" class="text-danger"></span>
     </div>
     <div class="mb-3">
-               <label asp-for="ProducentId"></label>
-               <select class="form-control" asp-for="ProducentId" asp-items="@Model?.ProducentList"></select>
-               <a asp-action="Create" asp-controller="Producent">Add new producent</a>
-           </div>
+        <label asp-for="IsFavourite"></label>
+        <input asp-for="IsFavourite" />
+        <span class="text-danger" asp-validation-for="IsFavourite"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ProducentId"></label>
+        <select class="form-control" asp-for="ProducentId" asp-items="@Model?.ProducentList"></select>
+        <a asp-action="Create" asp-controller="Producent">Add new producent</a>
+    </div>
+
     <button class="btn btn-primary" type="submit">Save</button>
     <button class="btn btn-secondary" type="reset">Reset</button>
 

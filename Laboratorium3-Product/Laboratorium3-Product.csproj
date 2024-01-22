@@ -28,6 +28,7 @@
     <Folder Include="Areas\CountryController\Data\" />
     <Folder Include="Areas\CountryController\Models\" />
     <Folder Include="Areas\CountryController\Views\" />
+    <Folder Include="wwwroot\Assets\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,4 +38,11 @@
     <AdditionalFiles Include="Views\Country\Update.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\Assets\lampicon.png" />
+    <Content Remove="wwwroot\Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\Assets\lampicon.png" />
+  </ItemGroup>
 </Project>
