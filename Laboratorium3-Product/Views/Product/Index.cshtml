@@ -11,40 +11,44 @@
 @if (Model.Data.Count() > 0)
 {
     <table class="table">
-        <tr>
-            <th></th>
-            <th>@Html.DisplayNameFor(model => model.Data[0].ProductName)</th>
-            <th>@Html.DisplayNameFor(model => model.Data[0].Price)</th>
-            <th>@Html.DisplayNameFor(model => model.Data[0].DateOfProduction)</th>
-            <th>@Html.DisplayNameFor(model => model.Data[0].Description)</th>
-            <th>@Html.DisplayNameFor(model => model.Data[0].Quality)</th>
-            <th>Actions</th>
-        </tr>
-        @foreach (var item in Model.Data)
-        {
+        <thead>
             <tr>
-                <td>
-                    @if (item.IsFavourite)
-                    {
-                        <i class="fa-solid fa-heart pink"></i>
-                    }
-                    else
-                    {
-                        <i class="fa-regular fa-heart"></i>
-                    }
-                </td>
-                <td>@item.ProductName</td>
-                <td>@item.Price</td>
-                <td>@item.DateOfProduction</td>
-                <td>@item.Description</td>
-                <td>@item.Quality.GetDisplayName()</td>
-                <td>
-                    <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
-                    <a asp-controller="Product" asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-info">Update</a>
-                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-                </td>
+                <th></th>
+                <th>@Html.DisplayNameFor(model => model.Data[0].ProductName)</th>
+                <th>@Html.DisplayNameFor(model => model.Data[0].Price)</th>
+                <th>@Html.DisplayNameFor(model => model.Data[0].DateOfProduction)</th>
+                <th>@Html.DisplayNameFor(model => model.Data[0].Description)</th>
+                <th>@Html.DisplayNameFor(model => model.Data[0].Quality)</th>
+                <th>Actions</th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Data)
+            {
+                <tr>
+                    <td>
+                        @if (item.IsFavourite)
+                        {
+                            <i class="fa-solid fa-heart pink"></i>
+                        }
+                        else
+                        {
+                            <i class="fa-regular fa-heart"></i>
+                        }
+                    </td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Price</td>
+                    <td>@item.DateOfProduction</td>
+                    <td>@item.Description</td>
+                    <td>@item.Quality.GetDisplayName()</td>
+                    <td>
+                        <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                        <a asp-controller="Product" asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-info">Update</a>
+                        <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
     <nav aria-label="Books page navigation">
         <ul class="pagination">

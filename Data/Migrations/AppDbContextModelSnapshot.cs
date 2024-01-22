@@ -97,12 +97,22 @@ namespace Data.Migrations
                         new
                         {
                             Id = 2,
-                            Name = "Sweden"
+                            Name = "Spain"
                         },
                         new
                         {
                             Id = 3,
                             Name = "Finland"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "France"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Sweden"
                         });
                 });
 
@@ -176,6 +186,20 @@ namespace Data.Migrations
                             CountryId = 3,
                             Description = "Sieć sklepów dekoracyjnych.",
                             Name = "JYSK"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CountryId = 4,
+                            Description = "Salon mebli oraz artykułów wyposażenia wnętrz.",
+                            Name = "Agata-meble"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CountryId = 1,
+                            Description = "Sieć sklepów budowlanych.",
+                            Name = "Castorama"
                         });
                 });
 
@@ -219,7 +243,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfProduction = new DateTime(2023, 11, 8, 15, 30, 0, 0, DateTimeKind.Unspecified),
+                            DateOfProduction = new DateTime(2023, 11, 8, 5, 30, 0, 0, DateTimeKind.Unspecified),
                             Description = "Lampa sufitowa/ścienna LED",
                             IsFavourite = false,
                             Price = 99m,
@@ -230,13 +254,57 @@ namespace Data.Migrations
                         new
                         {
                             Id = 2,
-                            DateOfProduction = new DateTime(2023, 11, 8, 15, 30, 0, 0, DateTimeKind.Unspecified),
-                            Description = "ładny stół",
+                            DateOfProduction = new DateTime(2022, 5, 2, 9, 45, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Stół z sosnowego drewna",
                             IsFavourite = true,
                             Price = 199m,
                             ProducentId = 2,
                             ProductName = "Table",
                             Quality = 4
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DateOfProduction = new DateTime(2023, 1, 28, 9, 5, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Wzorzysty dywan",
+                            IsFavourite = false,
+                            Price = 339m,
+                            ProducentId = 3,
+                            ProductName = "Rug",
+                            Quality = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DateOfProduction = new DateTime(2022, 1, 3, 2, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Krzesło do jadalni",
+                            IsFavourite = true,
+                            Price = 100m,
+                            ProducentId = 4,
+                            ProductName = "Chair",
+                            Quality = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DateOfProduction = new DateTime(2023, 12, 24, 2, 10, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Wygodna rozkładana sofa",
+                            IsFavourite = true,
+                            Price = 1889m,
+                            ProducentId = 1,
+                            ProductName = "Sofa",
+                            Quality = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DateOfProduction = new DateTime(2021, 9, 16, 7, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Monstera",
+                            IsFavourite = true,
+                            Price = 39m,
+                            ProducentId = 2,
+                            ProductName = "Plant",
+                            Quality = 2
                         });
                 });
 
@@ -268,15 +336,15 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "64f939e4-0f99-4072-b11f-0c4aec228a06",
-                            ConcurrencyStamp = "64f939e4-0f99-4072-b11f-0c4aec228a06",
+                            Id = "62b9ed5a-82a3-47a8-b251-195f38c2acc7",
+                            ConcurrencyStamp = "62b9ed5a-82a3-47a8-b251-195f38c2acc7",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "76482de6-dbbe-4f2d-8e92-a66ffce7eef3",
-                            ConcurrencyStamp = "76482de6-dbbe-4f2d-8e92-a66ffce7eef3",
+                            Id = "9fd7101e-f2d3-493f-a12a-84d76aab2d5b",
+                            ConcurrencyStamp = "9fd7101e-f2d3-493f-a12a-84d76aab2d5b",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -371,33 +439,33 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b62e442e-af4c-4457-abc2-e12daf4ae069",
+                            Id = "4b9df873-e0c7-40b5-bd9f-b4c14a599e12",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "38d5f225-82ea-4fc8-8b61-3dcbbd7c2fce",
+                            ConcurrencyStamp = "e9681d1b-6214-418e-ac96-635296b70e42",
                             Email = "justyna.malinowska2001@op.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL",
                             NormalizedUserName = "JUSTYNA",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBpGNM2x/50HAyVIKy5QsbaKs6m8AxZqjWa4T3BsojWgF6kkbtFEv5n7IXj32gXRHg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPxCWXBP77QLjh2f9CK4Q/YwrlFvmFSA1W0sZNsRv+2IZl8Dw8iDItB2M0GYGZFAug==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8af08597-566e-4efd-bb8b-da735a02a8c0",
+                            SecurityStamp = "dbbf8f45-4319-4b23-90f5-149d52e96fb6",
                             TwoFactorEnabled = false,
                             UserName = "justyna"
                         },
                         new
                         {
-                            Id = "ef391aff-9130-4074-ae0c-22d6ee95883f",
+                            Id = "3dcbac84-10dc-4753-9ec1-ad7424f1313e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2da1b8c9-fe9d-4aad-afe3-7efbb483b0df",
+                            ConcurrencyStamp = "361cecef-c1f5-472a-81bd-a7955d51b8db",
                             Email = "marek@wsei.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MAREK@WSEI.PL",
                             NormalizedUserName = "MAREK",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAVCSv6UleNhWc/yUDqpx38WKhJEnKuYNtZFoVK20K5Z53Uq/g01R11ynRGc6AC2mQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEATYcQD9R9jVJeK5Q2uAGbBg2nXYdoHS19Em6WFaBdJI020oLqmKrmoVfuqw8wsvdQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b565dc37-74ec-470e-8d6d-1b59b08d2250",
+                            SecurityStamp = "6a39ef42-38cb-4a94-b6e6-14a3232bf6b5",
                             TwoFactorEnabled = false,
                             UserName = "marek"
                         });
@@ -465,13 +533,13 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "b62e442e-af4c-4457-abc2-e12daf4ae069",
-                            RoleId = "64f939e4-0f99-4072-b11f-0c4aec228a06"
+                            UserId = "4b9df873-e0c7-40b5-bd9f-b4c14a599e12",
+                            RoleId = "62b9ed5a-82a3-47a8-b251-195f38c2acc7"
                         },
                         new
                         {
-                            UserId = "ef391aff-9130-4074-ae0c-22d6ee95883f",
-                            RoleId = "76482de6-dbbe-4f2d-8e92-a66ffce7eef3"
+                            UserId = "3dcbac84-10dc-4753-9ec1-ad7424f1313e",
+                            RoleId = "9fd7101e-f2d3-493f-a12a-84d76aab2d5b"
                         });
                 });
 

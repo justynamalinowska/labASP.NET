@@ -43,7 +43,7 @@ namespace Laboratorium3_Product.Controllers
             }
             else
             {
-                return View();
+                return View(model);
             }
         }
         

@@ -24,7 +24,7 @@ namespace Laboratorium3_Product.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Index(int page = 1, int size = 2)
+        public IActionResult Index(int page = 1, int size = 5)
         {
             ViewBag.PageSize = size;
             return View(_productService.FindPage(page, size));

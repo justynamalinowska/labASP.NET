@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -246,7 +246,8 @@ namespace Data.Migrations
                     DateOfProduction = table.Column<DateTime>(type: "TEXT", nullable: true),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
                     Quality = table.Column<int>(type: "INTEGER", nullable: false),
-                    ProducentId = table.Column<int>(type: "INTEGER", nullable: true)
+                    ProducentId = table.Column<int>(type: "INTEGER", nullable: true),
+                    IsFavourite = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -263,8 +264,8 @@ namespace Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "99bca169-f772-4f05-9416-31cf375da7bd", "99bca169-f772-4f05-9416-31cf375da7bd", "user", "USER" },
-                    { "d781a77b-32a5-4f05-9a89-8c914eb883ac", "d781a77b-32a5-4f05-9a89-8c914eb883ac", "admin", "ADMIN" }
+                    { "62b9ed5a-82a3-47a8-b251-195f38c2acc7", "62b9ed5a-82a3-47a8-b251-195f38c2acc7", "admin", "ADMIN" },
+                    { "9fd7101e-f2d3-493f-a12a-84d76aab2d5b", "9fd7101e-f2d3-493f-a12a-84d76aab2d5b", "user", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -272,8 +273,8 @@ namespace Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "175785c5-22eb-4c81-a975-2362ebc17ab3", 0, "2022d920-d0b2-462b-b29a-ffdac8481986", "justyna.malinowska2001@op.pl", true, false, null, "JUSTYNA.MALINOWSKA2001@OP.PL", "JUSTYNA", "AQAAAAEAACcQAAAAEKW2p5uSo2H7m72ba957kt+pVfy39mLoz+dctyFi41VpS95kzYwTzCbS+MLCjqpMdg==", null, false, "9d2f03fe-700d-4f21-9e6d-ced10564f8f7", false, "justyna" },
-                    { "327d0dee-d2b8-46e0-af1f-7ff885de6a93", 0, "2e82a122-2fd1-42c2-8deb-79212c3f6944", "marek@wsei.pl", true, false, null, "MAREK@WSEI.PL", "MAREK", "AQAAAAEAACcQAAAAEAKEqgbiFLTxGFfxpfDLz4FFPO/7HsYK7lxMZKPiUyIuL3ohpkCIcJWwYluaFJifBg==", null, false, "0889a015-97bf-41fc-ae80-e114988eadc7", false, "marek" }
+                    { "3dcbac84-10dc-4753-9ec1-ad7424f1313e", 0, "361cecef-c1f5-472a-81bd-a7955d51b8db", "marek@wsei.pl", true, false, null, "MAREK@WSEI.PL", "MAREK", "AQAAAAEAACcQAAAAEATYcQD9R9jVJeK5Q2uAGbBg2nXYdoHS19Em6WFaBdJI020oLqmKrmoVfuqw8wsvdQ==", null, false, "6a39ef42-38cb-4a94-b6e6-14a3232bf6b5", false, "marek" },
+                    { "4b9df873-e0c7-40b5-bd9f-b4c14a599e12", 0, "e9681d1b-6214-418e-ac96-635296b70e42", "justyna.malinowska2001@op.pl", true, false, null, "JUSTYNA.MALINOWSKA2001@OP.PL", "JUSTYNA", "AQAAAAEAACcQAAAAEPxCWXBP77QLjh2f9CK4Q/YwrlFvmFSA1W0sZNsRv+2IZl8Dw8iDItB2M0GYGZFAug==", null, false, "dbbf8f45-4319-4b23-90f5-149d52e96fb6", false, "justyna" }
                 });
 
             migrationBuilder.InsertData(
@@ -282,8 +283,10 @@ namespace Data.Migrations
                 values: new object[,]
                 {
                     { 1, "Poland" },
-                    { 2, "Sweden" },
-                    { 3, "Finland" }
+                    { 2, "Spain" },
+                    { 3, "Finland" },
+                    { 4, "France" },
+                    { 5, "Sweden" }
                 });
 
             migrationBuilder.InsertData(
@@ -300,8 +303,8 @@ namespace Data.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "d781a77b-32a5-4f05-9a89-8c914eb883ac", "175785c5-22eb-4c81-a975-2362ebc17ab3" },
-                    { "d781a77b-32a5-4f05-9a89-8c914eb883ac", "327d0dee-d2b8-46e0-af1f-7ff885de6a93" }
+                    { "9fd7101e-f2d3-493f-a12a-84d76aab2d5b", "3dcbac84-10dc-4753-9ec1-ad7424f1313e" },
+                    { "62b9ed5a-82a3-47a8-b251-195f38c2acc7", "4b9df873-e0c7-40b5-bd9f-b4c14a599e12" }
                 });
 
             migrationBuilder.InsertData(
@@ -311,6 +314,15 @@ namespace Data.Migrations
                 {
                     { 1, 2, "Szwedzka sieć sklepów meblowych.", "IKEA", "Warszawa", "39-020", "Lipowa 12" },
                     { 2, 3, "Sieć sklepów dekoracyjnych.", "JYSK", "Katowice", "23-350", "Siewna 5" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Producents",
+                columns: new[] { "Id", "CountryId", "Description", "Name" },
+                values: new object[,]
+                {
+                    { 3, 4, "Salon mebli oraz artykułów wyposażenia wnętrz.", "Agata-meble" },
+                    { 4, 1, "Sieć sklepów budowlanych.", "Castorama" }
                 });
 
             migrationBuilder.InsertData(
@@ -324,8 +336,16 @@ namespace Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "Id", "DateOfProduction", "Description", "Price", "ProducentId", "ProductName", "Quality" },
-                values: new object[] { 1, new DateTime(2023, 11, 8, 15, 30, 0, 0, DateTimeKind.Unspecified), "Lampa sufitowa/ścienna LED", 99m, 1, "Lamp", 2 });
+                columns: new[] { "Id", "DateOfProduction", "Description", "IsFavourite", "Price", "ProducentId", "ProductName", "Quality" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2023, 11, 8, 5, 30, 0, 0, DateTimeKind.Unspecified), "Lampa sufitowa/ścienna LED", false, 99m, 1, "Lamp", 2 },
+                    { 2, new DateTime(2022, 5, 2, 9, 45, 0, 0, DateTimeKind.Unspecified), "Stół z sosnowego drewna", true, 199m, 2, "Table", 4 },
+                    { 3, new DateTime(2023, 1, 28, 9, 5, 0, 0, DateTimeKind.Unspecified), "Wzorzysty dywan", false, 339m, 3, "Rug", 2 },
+                    { 4, new DateTime(2022, 1, 3, 2, 30, 0, 0, DateTimeKind.Unspecified), "Krzesło do jadalni", true, 100m, 4, "Chair", 3 },
+                    { 5, new DateTime(2023, 12, 24, 2, 10, 0, 0, DateTimeKind.Unspecified), "Wygodna rozkładana sofa", true, 1889m, 1, "Sofa", 2 },
+                    { 6, new DateTime(2021, 9, 16, 7, 0, 0, 0, DateTimeKind.Unspecified), "Monstera", true, 39m, 2, "Plant", 2 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

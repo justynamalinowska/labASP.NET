@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240116222435_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240122185642_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -100,12 +100,22 @@ namespace Data.Migrations
                         new
                         {
                             Id = 2,
-                            Name = "Sweden"
+                            Name = "Spain"
                         },
                         new
                         {
                             Id = 3,
                             Name = "Finland"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "France"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Sweden"
                         });
                 });
 
@@ -179,6 +189,20 @@ namespace Data.Migrations
                             CountryId = 3,
                             Description = "Sieć sklepów dekoracyjnych.",
                             Name = "JYSK"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CountryId = 4,
+                            Description = "Salon mebli oraz artykułów wyposażenia wnętrz.",
+                            Name = "Agata-meble"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CountryId = 1,
+                            Description = "Sieć sklepów budowlanych.",
+                            Name = "Castorama"
                         });
                 });
 
@@ -194,6 +218,9 @@ namespace Data.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsFavourite")
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
@@ -219,11 +246,67 @@ namespace Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfProduction = new DateTime(2023, 11, 8, 15, 30, 0, 0, DateTimeKind.Unspecified),
+                            DateOfProduction = new DateTime(2023, 11, 8, 5, 30, 0, 0, DateTimeKind.Unspecified),
                             Description = "Lampa sufitowa/ścienna LED",
+                            IsFavourite = false,
                             Price = 99m,
                             ProducentId = 1,
                             ProductName = "Lamp",
+                            Quality = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DateOfProduction = new DateTime(2022, 5, 2, 9, 45, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Stół z sosnowego drewna",
+                            IsFavourite = true,
+                            Price = 199m,
+                            ProducentId = 2,
+                            ProductName = "Table",
+                            Quality = 4
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DateOfProduction = new DateTime(2023, 1, 28, 9, 5, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Wzorzysty dywan",
+                            IsFavourite = false,
+                            Price = 339m,
+                            ProducentId = 3,
+                            ProductName = "Rug",
+                            Quality = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DateOfProduction = new DateTime(2022, 1, 3, 2, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Krzesło do jadalni",
+                            IsFavourite = true,
+                            Price = 100m,
+                            ProducentId = 4,
+                            ProductName = "Chair",
+                            Quality = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DateOfProduction = new DateTime(2023, 12, 24, 2, 10, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Wygodna rozkładana sofa",
+                            IsFavourite = true,
+                            Price = 1889m,
+                            ProducentId = 1,
+                            ProductName = "Sofa",
+                            Quality = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DateOfProduction = new DateTime(2021, 9, 16, 7, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Monstera",
+                            IsFavourite = true,
+                            Price = 39m,
+                            ProducentId = 2,
+                            ProductName = "Plant",
                             Quality = 2
                         });
                 });
@@ -256,15 +339,15 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d781a77b-32a5-4f05-9a89-8c914eb883ac",
-                            ConcurrencyStamp = "d781a77b-32a5-4f05-9a89-8c914eb883ac",
+                            Id = "62b9ed5a-82a3-47a8-b251-195f38c2acc7",
+                            ConcurrencyStamp = "62b9ed5a-82a3-47a8-b251-195f38c2acc7",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "99bca169-f772-4f05-9416-31cf375da7bd",
-                            ConcurrencyStamp = "99bca169-f772-4f05-9416-31cf375da7bd",
+                            Id = "9fd7101e-f2d3-493f-a12a-84d76aab2d5b",
+                            ConcurrencyStamp = "9fd7101e-f2d3-493f-a12a-84d76aab2d5b",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -359,33 +442,33 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "175785c5-22eb-4c81-a975-2362ebc17ab3",
+                            Id = "4b9df873-e0c7-40b5-bd9f-b4c14a599e12",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2022d920-d0b2-462b-b29a-ffdac8481986",
+                            ConcurrencyStamp = "e9681d1b-6214-418e-ac96-635296b70e42",
                             Email = "justyna.malinowska2001@op.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JUSTYNA.MALINOWSKA2001@OP.PL",
                             NormalizedUserName = "JUSTYNA",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKW2p5uSo2H7m72ba957kt+pVfy39mLoz+dctyFi41VpS95kzYwTzCbS+MLCjqpMdg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPxCWXBP77QLjh2f9CK4Q/YwrlFvmFSA1W0sZNsRv+2IZl8Dw8iDItB2M0GYGZFAug==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9d2f03fe-700d-4f21-9e6d-ced10564f8f7",
+                            SecurityStamp = "dbbf8f45-4319-4b23-90f5-149d52e96fb6",
                             TwoFactorEnabled = false,
                             UserName = "justyna"
                         },
                         new
                         {
-                            Id = "327d0dee-d2b8-46e0-af1f-7ff885de6a93",
+                            Id = "3dcbac84-10dc-4753-9ec1-ad7424f1313e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2e82a122-2fd1-42c2-8deb-79212c3f6944",
+                            ConcurrencyStamp = "361cecef-c1f5-472a-81bd-a7955d51b8db",
                             Email = "marek@wsei.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MAREK@WSEI.PL",
                             NormalizedUserName = "MAREK",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAKEqgbiFLTxGFfxpfDLz4FFPO/7HsYK7lxMZKPiUyIuL3ohpkCIcJWwYluaFJifBg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEATYcQD9R9jVJeK5Q2uAGbBg2nXYdoHS19Em6WFaBdJI020oLqmKrmoVfuqw8wsvdQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0889a015-97bf-41fc-ae80-e114988eadc7",
+                            SecurityStamp = "6a39ef42-38cb-4a94-b6e6-14a3232bf6b5",
                             TwoFactorEnabled = false,
                             UserName = "marek"
                         });
@@ -453,13 +536,13 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "327d0dee-d2b8-46e0-af1f-7ff885de6a93",
-                            RoleId = "d781a77b-32a5-4f05-9a89-8c914eb883ac"
+                            UserId = "4b9df873-e0c7-40b5-bd9f-b4c14a599e12",
+                            RoleId = "62b9ed5a-82a3-47a8-b251-195f38c2acc7"
                         },
                         new
                         {
-                            UserId = "175785c5-22eb-4c81-a975-2362ebc17ab3",
-                            RoleId = "d781a77b-32a5-4f05-9a89-8c914eb883ac"
+                            UserId = "3dcbac84-10dc-4753-9ec1-ad7424f1313e",
+                            RoleId = "9fd7101e-f2d3-493f-a12a-84d76aab2d5b"
                         });
                 });
 

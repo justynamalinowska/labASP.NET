@@ -19,7 +19,7 @@ namespace Data
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "database5.db");
+            DbPath = System.IO.Path.Join(path, "databaseProduct.db");
         }
 
         public DbSet<ContactEntity> Contacts { get; set; }
@@ -99,13 +99,18 @@ namespace Data
             modelBuilder.Entity<CountryEntity>()
                 .HasData(
                     new CountryEntity(){ Id = 1, Name = "Poland" },
-                    new CountryEntity(){ Id = 2, Name = "Sweden" },
-                    new CountryEntity(){ Id = 3, Name = "Finland" }
+                    new CountryEntity(){ Id = 2, Name = "Spain" },
+                    new CountryEntity() { Id = 3, Name = "Finland" },
+                    new CountryEntity(){ Id = 4, Name = "France" },
+                    new CountryEntity(){ Id = 5, Name = "Sweden" }
+                    
                 );
             
             modelBuilder.Entity<ProducentEntity>().HasData(
-                new ProducentEntity() { Id=1, Name="IKEA", Description="Szwedzka sieć sklepów meblowych.", CountryId = 2},
-                new ProducentEntity() { Id=2, Name="JYSK", Description="Sieć sklepów dekoracyjnych.", CountryId = 3}
+                new ProducentEntity() { Id = 1, Name = "IKEA", Description = "Szwedzka sieć sklepów meblowych.", CountryId = 2 },
+                new ProducentEntity() { Id = 2, Name = "JYSK", Description = "Sieć sklepów dekoracyjnych.", CountryId = 3 },
+                new ProducentEntity() { Id = 3, Name = "Agata-meble", Description = "Salon mebli oraz artykułów wyposażenia wnętrz.", CountryId = 4 },
+                new ProducentEntity() { Id = 4, Name = "Castorama", Description = "Sieć sklepów budowlanych.", CountryId = 1 }
             );
             
             modelBuilder.Entity<ProducentEntity>()
@@ -115,8 +120,13 @@ namespace Data
                     new { ProducentEntityId = 2, City = "Katowice", Street = "Siewna 5", PostalCode = "23-350" });
 
             modelBuilder.Entity<ProductEntity>().HasData(
-                new ProductEntity() { Id = 1, ProductName="Lamp", Price=99, DateOfProduction= new DateTime(2023, 11, 8, 15, 30, 0), Description= "Lampa sufitowa/ścienna LED", Quality=2, ProducentId = 1, IsFavourite = false },
-            new ProductEntity() { Id = 2, ProductName = "Table", Price = 199, DateOfProduction = new DateTime(2023, 11, 8, 15, 30, 0), Description = "ładny stół", Quality = 4, ProducentId = 2, IsFavourite = true });
+                new ProductEntity() { Id = 1, ProductName = "Lamp", Price=99, DateOfProduction= new DateTime(2023, 11, 8, 5, 30, 0), Description= "Lampa sufitowa/ścienna LED", Quality=2, ProducentId = 1, IsFavourite = false },
+                new ProductEntity() { Id = 2, ProductName = "Table", Price = 199, DateOfProduction = new DateTime(2022, 5, 2, 9, 45, 0), Description = "Stół z sosnowego drewna", Quality = 4, ProducentId = 2, IsFavourite = true },
+                new ProductEntity() { Id = 3, ProductName = "Rug", Price = 339, DateOfProduction = new DateTime(2023, 1, 28, 9, 5, 0), Description = "Wzorzysty dywan", Quality = 2, ProducentId = 3, IsFavourite = false },
+                new ProductEntity() { Id = 4, ProductName = "Chair", Price = 100, DateOfProduction = new DateTime(2022, 1, 3, 2, 30, 0), Description = "Krzesło do jadalni", Quality = 3, ProducentId = 4, IsFavourite = true },
+                new ProductEntity() { Id = 5, ProductName = "Sofa", Price = 1889, DateOfProduction = new DateTime(2023, 12, 24, 2, 10, 0), Description = "Wygodna rozkładana sofa", Quality = 2, ProducentId = 1, IsFavourite = true},
+                new ProductEntity() { Id = 6, ProductName = "Plant", Price = 39, DateOfProduction = new DateTime(2021, 9, 16, 7, 0, 0), Description = "Monstera", Quality = 2, ProducentId = 2, IsFavourite = true }
+                );
 
 
 
