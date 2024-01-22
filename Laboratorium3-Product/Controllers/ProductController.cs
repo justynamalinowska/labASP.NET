@@ -13,7 +13,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace Laboratorium3_Product.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
@@ -23,7 +23,7 @@ namespace Laboratorium3_Product.Controllers
             _productService = productService;
         }
 
-
+        [AllowAnonymous]
         public IActionResult Index(int page = 1, int size = 2)
         {
             ViewBag.PageSize = size;

@@ -10,9 +10,12 @@ using Data.Entities;
 using Data.Migrations;
 using Laboratorium3_Product.Models;
 using Producent = Laboratorium3_Product.Models.Producent;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace Laboratorium3_Product.Controllers;
 
+[Authorize(Roles = "admin")]
 public class ProducentController : Controller
 {
     private readonly IProducentService _producentService;
@@ -24,7 +27,8 @@ public class ProducentController : Controller
         _countryService = countryService;
 
     }
-        
+
+    [AllowAnonymous]
     public IActionResult Index()
     {
         var producents = _producentService.FindAll();

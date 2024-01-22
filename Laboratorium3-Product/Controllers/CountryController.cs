@@ -11,7 +11,7 @@ using Data.Entities;
 
 namespace Laboratorium3_Product.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public class CountryController : Controller
     {
         private readonly ICountryService _countryService;
@@ -21,6 +21,7 @@ namespace Laboratorium3_Product.Controllers
             _countryService = countryService;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(_countryService.FindAll());

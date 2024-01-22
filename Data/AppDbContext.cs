@@ -61,8 +61,8 @@ namespace Data
             
             modelBuilder.Entity<IdentityUserRole<string>>()
                 .HasData(
-                    new IdentityUserRole<string>() { RoleId = adminRole.Id, UserId = user.Id },
-                    new IdentityUserRole<string>() { RoleId = adminRole.Id, UserId = admin.Id }
+                    new IdentityUserRole<string>() { RoleId = adminRole.Id, UserId = admin.Id },
+                    new IdentityUserRole<string>() { RoleId = userRole.Id, UserId = user.Id }
                 );
             
             modelBuilder.Entity<ContactEntity>()
