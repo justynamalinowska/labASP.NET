@@ -29,7 +29,7 @@ To facilitate testing of the application, sample user data is available:
 1. **Clone the project from the GitHub repository:**
 
    ```bash
-   git clone https://github.com/your-username/Laboratorium3_Product.git
+   git clone https://github.com/justynamalinowska/labASP.NET/tree/main
    ```
    
 1. Open the project in Visual Studio.
