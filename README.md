@@ -72,7 +72,6 @@ Upon launching the application, you will be presented with a main window interfa
 - **Products**: Clicking this button will open the product management section where you can add, edit, or delete product records.
 - **Producers**: Clicking this button will open the producer management section where you can manage producer records.
 - **Countries**: This button allows you to access the country management section where you can view and manage country details.
-- **Favorites**: Clicking this button will take you to the favorites section where you can view and manage your favorite products.
 
 To perform specific actions within each section, follow the instructions provided on the respective screens. You can add, edit, and delete records as needed.
 
